@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,11 +20,11 @@ namespace Clases
             }
             set
             {
-                if (value == 10)
-                {
-                    telephono = value;
-                }
-                else telephono = 0;
+              if (value == 10)
+              {
+                  telephono = value;
+              }
+              else telephono = 0;
             }
         }
 
@@ -33,7 +33,7 @@ namespace Clases
             Name = name_p;
             Surname = surname_p;
             BirthDay = birthDay_p;
-            Telephone = Telephone;
+            Telephone = telephono_p;
         }
 
         public bool BirthToday()
