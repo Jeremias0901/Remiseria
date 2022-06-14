@@ -1,0 +1,5 @@
+E:\_PDISC\TPS\TP_02\Proyecto\version2012\RemiseriaSolucion\Clases\obj\Debug\Clases.csprojResolveAssemblyReference.cache
+E:\_PDISC\TPS\TP_02\Proyecto\version2012\RemiseriaSolucion\Clases\bin\Debug\Clases.dll
+E:\_PDISC\TPS\TP_02\Proyecto\version2012\RemiseriaSolucion\Clases\bin\Debug\Clases.pdb
+E:\_PDISC\TPS\TP_02\Proyecto\version2012\RemiseriaSolucion\Clases\obj\Debug\Clases.dll
+E:\_PDISC\TPS\TP_02\Proyecto\version2012\RemiseriaSolucion\Clases\obj\Debug\Clases.pdb

@@ -1,0 +1,12 @@
+E:\_PDISC\TPS\TP_02\Proyecto\version2012\RemiseriaSolucion\Remiseria\bin\Debug\Remiseria.exe.config
+E:\_PDISC\TPS\TP_02\Proyecto\version2012\RemiseriaSolucion\Remiseria\bin\Debug\Remiseria.exe
+E:\_PDISC\TPS\TP_02\Proyecto\version2012\RemiseriaSolucion\Remiseria\bin\Debug\Remiseria.pdb
+E:\_PDISC\TPS\TP_02\Proyecto\version2012\RemiseriaSolucion\Remiseria\obj\Debug\Remiseria.csprojResolveAssemblyReference.cache
+E:\_PDISC\TPS\TP_02\Proyecto\version2012\RemiseriaSolucion\Remiseria\obj\Debug\Remiseria.FRMRecepcion.resources
+E:\_PDISC\TPS\TP_02\Proyecto\version2012\RemiseriaSolucion\Remiseria\obj\Debug\Remiseria.Properties.Resources.resources
+E:\_PDISC\TPS\TP_02\Proyecto\version2012\RemiseriaSolucion\Remiseria\obj\Debug\Remiseria.csproj.GenerateResource.Cache
+E:\_PDISC\TPS\TP_02\Proyecto\version2012\RemiseriaSolucion\Remiseria\obj\Debug\Remiseria.exe
+E:\_PDISC\TPS\TP_02\Proyecto\version2012\RemiseriaSolucion\Remiseria\obj\Debug\Remiseria.pdb
+E:\_PDISC\TPS\TP_02\Proyecto\version2012\RemiseriaSolucion\Remiseria\obj\Debug\Remiseria.FRMJefe.resources
+E:\_PDISC\TPS\TP_02\Proyecto\version2012\RemiseriaSolucion\Remiseria\bin\Debug\Clases.dll
+E:\_PDISC\TPS\TP_02\Proyecto\version2012\RemiseriaSolucion\Remiseria\bin\Debug\Clases.pdb
