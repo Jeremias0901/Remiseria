@@ -3,3 +3,14 @@ E:\_PDISC\TPS\TP_02\Proyecto\version2012\RemiseriaSolucion\Clases\bin\Debug\Clas
 E:\_PDISC\TPS\TP_02\Proyecto\version2012\RemiseriaSolucion\Clases\bin\Debug\Clases.pdb
 E:\_PDISC\TPS\TP_02\Proyecto\version2012\RemiseriaSolucion\Clases\obj\Debug\Clases.dll
 E:\_PDISC\TPS\TP_02\Proyecto\version2012\RemiseriaSolucion\Clases\obj\Debug\Clases.pdb
+F:\_PDISC\TPS\TP_02\Proyecto\RemiseriaSolucion\Clases\bin\Debug\Clases.dll
+F:\_PDISC\TPS\TP_02\Proyecto\RemiseriaSolucion\Clases\bin\Debug\Clases.pdb
+F:\_PDISC\TPS\TP_02\Proyecto\RemiseriaSolucion\Clases\obj\Debug\Clases.csproj.AssemblyReference.cache
+F:\_PDISC\TPS\TP_02\Proyecto\RemiseriaSolucion\Clases\obj\Debug\Clases.csproj.CoreCompileInputs.cache
+F:\_PDISC\TPS\TP_02\Proyecto\RemiseriaSolucion\Clases\obj\Debug\Clases.dll
+F:\_PDISC\TPS\TP_02\Proyecto\RemiseriaSolucion\Clases\obj\Debug\Clases.pdb
+E:\_PDISC\TPS\TP_02\Proyecto\RemiseriaSolucion\Clases\bin\Debug\Clases.dll
+E:\_PDISC\TPS\TP_02\Proyecto\RemiseriaSolucion\Clases\bin\Debug\Clases.pdb
+E:\_PDISC\TPS\TP_02\Proyecto\RemiseriaSolucion\Clases\obj\Debug\Clases.csprojResolveAssemblyReference.cache
+E:\_PDISC\TPS\TP_02\Proyecto\RemiseriaSolucion\Clases\obj\Debug\Clases.dll
+E:\_PDISC\TPS\TP_02\Proyecto\RemiseriaSolucion\Clases\obj\Debug\Clases.pdb

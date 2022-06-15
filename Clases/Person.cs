@@ -20,11 +20,11 @@ namespace Clases
             }
             set
             {
-              if (value == 10)
-              {
-                  telephono = value;
-              }
-              else telephono = 0;
+                if (value >= 1000000000)
+                {
+                    telephono = value;
+                }
+                else telephono = 0;
             }
         }
 

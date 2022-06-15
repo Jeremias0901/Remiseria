@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,107 +13,151 @@ namespace Remiseria
 {
     public partial class FRMRecepcion : Form
     {
-        FRMJefe formJefe = new FRMJefe();
+        Customers o_customer;
 
         public FRMRecepcion()
         {
             InitializeComponent();
         }
-
         private void FRMRecepcion_Load(object sender, EventArgs e)
         {
-            formJefe.Show();
+            
         }
-
         private void BTNFind_Click(object sender, EventArgs e)
         {
-            if ( FindedCode(MTXCode.Text.ToCharArray()) )
+            if ( ValidBlanks_Authenticate() )
             {
-                LBLEstado.Text = "Cliente Encontrado!";
+                o_customer = Customers.Find(Convert.ToInt32(MTXCode.Text));
 
-                CustomerCompletBlanks(FindCode(MTXCode.Text.ToCharArray()));
+                if (!o_customer.Equals(new Customers()))
+                {
+                    LBLEstado.Text = "Cliente Encontrado!";
+
+                    CustomerCompletBlanks(o_customer);
+
+                    GRPAuthenticate.Enabled = false;
+                    GRPCustomer.Enabled = false;
+                    GRPTravel.Enabled = true;
+
+                    MTXCode.Text = "";
+                }
+                else
+                {
+                    LBLEstado.Text = "Cliente NO encontrado";
+                    BTNGenerate.Enabled = true;
+                
+                    MTXCode.Text = "";
+                }
             }
             else
             {
-                LBLEstado.Text = "Cliente NO encontrado ";
+                MessageBox.Show("Ingese un codigo.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-        public Customers FindCode(char[] code_p)
-        {
-            Customers customer_result = new Customers();
-
-            foreach(Customers c in Customers.List)
-            {
-                if(Char.Equals(c.Code, code_p))
-                {
-                    customer_result = c;
-                }
-            }
-
-            return customer_result;
-        }
-        public bool FindedCode(char[] code_p)
-        {
-            bool result = false;
-
-            foreach (Customers c in Customers.List)
-            {
-                if (Char.Equals(c.Code, code_p))
-                {
-                    result = true;
-                }
-            }
-
-            return result;
-        }
-        public void CustomerCompletBlanks(Customers customer)
-        {
-            GRPCustomer.Enabled = false;
-            LBLName.Text = customer.Name;
-            LBLSurname.Text = customer.Surname;
-            DTPBirthDay.Value = customer.BirthDay;
-            LBLCode.Text = customer.Code.ToString();
-        }
-
         private void BTNGenerate_Click(object sender, EventArgs e)
         {
             Random rnd = new Random();
 
             LBLEstado.Text = "Codigo generado!";
-            LBLCode.Text = GenerateCode(rnd).ToString();
+            LBLCode_Content.Text = Customers.GenerateCode(rnd).ToString();
 
             GRPAuthenticate.Enabled = false;
+            GRPCustomer.Enabled = true;
+            MTXCode.Text = "";
         }
-
-        public char[] GenerateCode(Random rnd)
-        {
-            char[] code_p = new char[6];
-
-            do{
-                for (int i = 0; i < 6; i++)
-                {
-                    while (!char.IsLetterOrDigit(code_p[i]))
-                    {
-                        code_p[i] = Convert.ToChar(rnd.Next());
-                    }
-                }
-            } while (FindedCode(code_p));
-
-            return code_p;
-        }
-
         private void BTNRegister_Click(object sender, EventArgs e)
         {
-            Customers o_customer;
+            if (ValidBlanks_Customer())
+            {
+                o_customer = new Customers(code_p: Convert.ToInt32(LBLCode_Content.Text), name_p: TXTName.Text, surname_p: TXTSurname.Text, birthDay_p: DTPBirthDay.Value, telephone_p: Convert.ToInt32(NUDTelephone.Value));
+                o_customer.Save();
 
-            o_customer = new Customers(code_p: TXTName.Text.ToCharArray(), name_p:TXTName.Text, surname_p: TXTSurname.Text, birthDay_p: DTPBirthDay.Value);
-            Customers.List.Add(o_customer);
+                GRPCustomer.Enabled = false;
+                GRPTravel.Enabled = true;
+
+                VaciarCampos();
+            }
+            else
+            {
+                MessageBox.Show("Complete correctamente todos los campos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
-
         private void BTNOrderTravel_Click(object sender, EventArgs e)
         {
-            Travels viaje = new Travels(placeDeparture_p: TXTDeparture.Text, placeDestiny_p: TXTDestiny.Text, timeDeparture_p: DateTime.Now, timeDestiny_p: , duration_p: DTPDelay.Value, estado_p: true);
+            if (ValidBlanks_OrderTravel())
+            {
+                Travels travel = new Travels(TXTDeparture.Text, TXTDestiny.Text, DTPDuration.Value, true);
+
+                o_customer.OrderTravel(travel);
+
+                DGVTravels.DataSource = null;
+                DGVTravels.DataSource = Customers.Find();
+
+                GRPAuthenticate.Enabled = true;
+                GRPTravel.Enabled = false;
+                BTNFind.Enabled = true;
+                MTXCode.Enabled = true;
+                BTNRegister.Enabled = true;
+
+                TXTDeparture.Text = "";
+                TXTDestiny.Text = "";
+                DTPDuration.Value = new DateTime(2001, 1, 1);
+            }
+        }
+
+        private void BTNCancelTravel_Click(object sender, EventArgs e)
+        {
+            if (ValidBlanks_OrderTravel())
+            {
+                Travels travel = new Travels(TXTDeparture.Text, TXTDestiny.Text, new DateTime(2000, 1, 1), false);
+
+                o_customer.SaveTravel(travel);
+
+                GRPAuthenticate.Enabled = true;
+                GRPCustomer.Enabled = false;
+                GRPTravel.Enabled = false;
+            }
+        }
+
+        private void BTNArrived_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BTNViewCar_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("AUTO");
+        }
+        public void VaciarCampos()
+        {
+            TXTName.Text = "";
+            TXTSurname.Text = "";
+            DTPBirthDay.Value = new DateTime(2001, 1, 1);
+            LBLCode_Content.Text = "";
+        }
+        public void CustomerCompletBlanks(Customers customer)
+        {
+            GRPCustomer.Enabled = false;
+            TXTName.Text = customer.Name;
+            TXTSurname.Text = customer.Surname;
+            // DTPBirthDay.Value = customer.BirthDay;
+            LBLCode_Content.Text = customer.Code.ToString();
+        }
+        public bool ValidBlanks_Customer()
+        {
+            return ((TXTName.Text != "") && (TXTSurname.Text != "") && (DTPBirthDay.Text != "") && (LBLCode_Content.Text != ""));
+        }
+        public bool ValidBlanks_OrderTravel()
+        {
+            return ((TXTDestiny.Text != "") && (TXTDeparture.Text != "") && (DTPDuration.Text != ""));
+        }
+        public bool ValidBlanks_CancelTravel()
+        {
+            return ((TXTDestiny.Text != "") && (TXTDeparture.Text != ""));
+        }
+        public bool ValidBlanks_Authenticate()
+        {
+            return ((MTXCode.Text.Length == 6) && (MTXCode.Text != ""));
         }
     }
 }

@@ -45,11 +45,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FRMJefe.cs">
+    <Compile Include="FRMBoos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FRMJefe.Designer.cs">
-      <DependentUpon>FRMJefe.cs</DependentUpon>
+    <Compile Include="FRMBoos.Designer.cs">
+      <DependentUpon>FRMBoos.cs</DependentUpon>
     </Compile>
     <Compile Include="FRMRecepcion.cs">
       <SubType>Form</SubType>
@@ -59,8 +59,8 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FRMJefe.resx">
-      <DependentUpon>FRMJefe.cs</DependentUpon>
+    <EmbeddedResource Include="FRMBoos.resx">
+      <DependentUpon>FRMBoos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FRMRecepcion.resx">
       <DependentUpon>FRMRecepcion.cs</DependentUpon>

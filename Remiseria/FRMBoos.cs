@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Remiseria
 {
-    public partial class FRMJefe : Form
+    public partial class FRMBoos : Form
     {
-        public FRMJefe()
+        public FRMBoos()
         {
             InitializeComponent();
         }

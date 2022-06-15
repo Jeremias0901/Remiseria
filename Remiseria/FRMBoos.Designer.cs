@@ -1,6 +1,6 @@
 ﻿namespace Remiseria
 {
-    partial class FRMJefe
+    partial class FRMBoos
     {
         /// <summary>
         /// Required designer variable.

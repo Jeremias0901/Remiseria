@@ -1,4 +1,4 @@
-﻿namespace Remiseria
+namespace Remiseria
 {
     partial class FRMRecepcion
     {
@@ -35,6 +35,8 @@
             this.BTNFind = new System.Windows.Forms.Button();
             this.LBLCode = new System.Windows.Forms.Label();
             this.GRPCustomer = new System.Windows.Forms.GroupBox();
+            this.NUDTelephone = new System.Windows.Forms.NumericUpDown();
+            this.label1 = new System.Windows.Forms.Label();
             this.DTPBirthDay = new System.Windows.Forms.DateTimePicker();
             this.LBLBirthDay = new System.Windows.Forms.Label();
             this.BTNRegister = new System.Windows.Forms.Button();
@@ -45,20 +47,26 @@
             this.TXTName = new System.Windows.Forms.TextBox();
             this.LBLName = new System.Windows.Forms.Label();
             this.GRPTravel = new System.Windows.Forms.GroupBox();
-            this.DTPDelay = new System.Windows.Forms.DateTimePicker();
-            this.BTNViewCar = new System.Windows.Forms.Button();
-            this.LBLDuration = new System.Windows.Forms.Label();
-            this.BTNCancelTravel = new System.Windows.Forms.Button();
-            this.LBLDelay_Content = new System.Windows.Forms.Label();
             this.BTNOrderTravel = new System.Windows.Forms.Button();
+            this.DTPDuration = new System.Windows.Forms.DateTimePicker();
+            this.LBLDuration = new System.Windows.Forms.Label();
+            this.LBLDelay_Content = new System.Windows.Forms.Label();
             this.LBLDelay_Tag = new System.Windows.Forms.Label();
             this.TXTDestiny = new System.Windows.Forms.TextBox();
             this.LBLDestiny = new System.Windows.Forms.Label();
             this.TXTDeparture = new System.Windows.Forms.TextBox();
             this.LBLDeparture = new System.Windows.Forms.Label();
+            this.BTNViewCar = new System.Windows.Forms.Button();
+            this.BTNCancelTravel = new System.Windows.Forms.Button();
+            this.BTNArrived = new System.Windows.Forms.Button();
+            this.DGVTravels = new System.Windows.Forms.DataGridView();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.GRPAuthenticate.SuspendLayout();
             this.GRPCustomer.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.NUDTelephone)).BeginInit();
             this.GRPTravel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DGVTravels)).BeginInit();
             this.SuspendLayout();
             // 
             // GRPAuthenticate
@@ -69,9 +77,9 @@
             this.GRPAuthenticate.Controls.Add(this.BTNFind);
             this.GRPAuthenticate.Controls.Add(this.LBLCode);
             this.GRPAuthenticate.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.GRPAuthenticate.Location = new System.Drawing.Point(68, 12);
+            this.GRPAuthenticate.Location = new System.Drawing.Point(12, 12);
             this.GRPAuthenticate.Name = "GRPAuthenticate";
-            this.GRPAuthenticate.Size = new System.Drawing.Size(176, 112);
+            this.GRPAuthenticate.Size = new System.Drawing.Size(213, 112);
             this.GRPAuthenticate.TabIndex = 0;
             this.GRPAuthenticate.TabStop = false;
             this.GRPAuthenticate.Text = "Autenticar";
@@ -80,7 +88,7 @@
             // 
             this.LBLEstado.AutoSize = true;
             this.LBLEstado.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold);
-            this.LBLEstado.Location = new System.Drawing.Point(66, 87);
+            this.LBLEstado.Location = new System.Drawing.Point(56, 85);
             this.LBLEstado.Name = "LBLEstado";
             this.LBLEstado.Size = new System.Drawing.Size(51, 17);
             this.LBLEstado.TabIndex = 9;
@@ -89,8 +97,8 @@
             // MTXCode
             // 
             this.MTXCode.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.MTXCode.Location = new System.Drawing.Point(67, 28);
-            this.MTXCode.Mask = "000 - 000";
+            this.MTXCode.Location = new System.Drawing.Point(83, 26);
+            this.MTXCode.Mask = "000000";
             this.MTXCode.Name = "MTXCode";
             this.MTXCode.Size = new System.Drawing.Size(100, 23);
             this.MTXCode.TabIndex = 8;
@@ -99,7 +107,7 @@
             // BTNGenerate
             // 
             this.BTNGenerate.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.BTNGenerate.Location = new System.Drawing.Point(92, 57);
+            this.BTNGenerate.Location = new System.Drawing.Point(108, 55);
             this.BTNGenerate.Name = "BTNGenerate";
             this.BTNGenerate.Size = new System.Drawing.Size(75, 23);
             this.BTNGenerate.TabIndex = 2;
@@ -110,7 +118,7 @@
             // BTNFind
             // 
             this.BTNFind.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.BTNFind.Location = new System.Drawing.Point(11, 57);
+            this.BTNFind.Location = new System.Drawing.Point(27, 55);
             this.BTNFind.Name = "BTNFind";
             this.BTNFind.Size = new System.Drawing.Size(75, 23);
             this.BTNFind.TabIndex = 1;
@@ -122,7 +130,7 @@
             // 
             this.LBLCode.AutoSize = true;
             this.LBLCode.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.LBLCode.Location = new System.Drawing.Point(10, 31);
+            this.LBLCode.Location = new System.Drawing.Point(26, 29);
             this.LBLCode.Name = "LBLCode";
             this.LBLCode.Size = new System.Drawing.Size(46, 15);
             this.LBLCode.TabIndex = 0;
@@ -130,6 +138,8 @@
             // 
             // GRPCustomer
             // 
+            this.GRPCustomer.Controls.Add(this.NUDTelephone);
+            this.GRPCustomer.Controls.Add(this.label1);
             this.GRPCustomer.Controls.Add(this.DTPBirthDay);
             this.GRPCustomer.Controls.Add(this.LBLBirthDay);
             this.GRPCustomer.Controls.Add(this.BTNRegister);
@@ -139,30 +149,65 @@
             this.GRPCustomer.Controls.Add(this.LBLSurname);
             this.GRPCustomer.Controls.Add(this.TXTName);
             this.GRPCustomer.Controls.Add(this.LBLName);
+            this.GRPCustomer.Enabled = false;
             this.GRPCustomer.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.GRPCustomer.Location = new System.Drawing.Point(50, 132);
+            this.GRPCustomer.Location = new System.Drawing.Point(12, 132);
             this.GRPCustomer.Name = "GRPCustomer";
             this.GRPCustomer.Size = new System.Drawing.Size(213, 220);
             this.GRPCustomer.TabIndex = 3;
             this.GRPCustomer.TabStop = false;
             this.GRPCustomer.Text = "Cliente";
             // 
+            // NUDTelephone
+            // 
+            this.NUDTelephone.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.NUDTelephone.Location = new System.Drawing.Point(86, 128);
+            this.NUDTelephone.Maximum = new decimal(new int[] {
+            1410065407,
+            2,
+            0,
+            0});
+            this.NUDTelephone.Minimum = new decimal(new int[] {
+            1000000000,
+            0,
+            0,
+            0});
+            this.NUDTelephone.Name = "NUDTelephone";
+            this.NUDTelephone.Size = new System.Drawing.Size(100, 23);
+            this.NUDTelephone.TabIndex = 11;
+            this.NUDTelephone.Value = new decimal(new int[] {
+            1000000000,
+            0,
+            0,
+            0});
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.label1.Location = new System.Drawing.Point(24, 128);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(52, 15);
+            this.label1.TabIndex = 10;
+            this.label1.Text = "Telefono";
+            // 
             // DTPBirthDay
             // 
             this.DTPBirthDay.CustomFormat = "dd/MM/yyyy";
+            this.DTPBirthDay.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.DTPBirthDay.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.DTPBirthDay.Location = new System.Drawing.Point(86, 92);
+            this.DTPBirthDay.Location = new System.Drawing.Point(86, 95);
+            this.DTPBirthDay.MaxDate = new System.DateTime(2060, 12, 31, 0, 0, 0, 0);
             this.DTPBirthDay.Name = "DTPBirthDay";
-            this.DTPBirthDay.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.DTPBirthDay.ShowUpDown = true;
-            this.DTPBirthDay.Size = new System.Drawing.Size(100, 29);
+            this.DTPBirthDay.Size = new System.Drawing.Size(100, 23);
             this.DTPBirthDay.TabIndex = 9;
+            this.DTPBirthDay.Value = new System.DateTime(2001, 1, 1, 0, 0, 0, 0);
             // 
             // LBLBirthDay
             // 
             this.LBLBirthDay.AutoSize = true;
             this.LBLBirthDay.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.LBLBirthDay.Location = new System.Drawing.Point(6, 103);
+            this.LBLBirthDay.Location = new System.Drawing.Point(6, 97);
             this.LBLBirthDay.Name = "LBLBirthDay";
             this.LBLBirthDay.Size = new System.Drawing.Size(74, 15);
             this.LBLBirthDay.TabIndex = 9;
@@ -171,7 +216,7 @@
             // BTNRegister
             // 
             this.BTNRegister.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.BTNRegister.Location = new System.Drawing.Point(57, 168);
+            this.BTNRegister.Location = new System.Drawing.Point(63, 191);
             this.BTNRegister.Name = "BTNRegister";
             this.BTNRegister.Size = new System.Drawing.Size(75, 23);
             this.BTNRegister.TabIndex = 8;
@@ -183,7 +228,7 @@
             // 
             this.LBLCode_Content.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.LBLCode_Content.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold);
-            this.LBLCode_Content.Location = new System.Drawing.Point(86, 128);
+            this.LBLCode_Content.Location = new System.Drawing.Point(86, 159);
             this.LBLCode_Content.Name = "LBLCode_Content";
             this.LBLCode_Content.Size = new System.Drawing.Size(100, 23);
             this.LBLCode_Content.TabIndex = 7;
@@ -193,7 +238,7 @@
             // 
             this.LBLCode_Tag.AutoSize = true;
             this.LBLCode_Tag.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.LBLCode_Tag.Location = new System.Drawing.Point(22, 128);
+            this.LBLCode_Tag.Location = new System.Drawing.Point(34, 159);
             this.LBLCode_Tag.Name = "LBLCode_Tag";
             this.LBLCode_Tag.Size = new System.Drawing.Size(46, 15);
             this.LBLCode_Tag.TabIndex = 6;
@@ -237,65 +282,57 @@
             // 
             // GRPTravel
             // 
-            this.GRPTravel.Controls.Add(this.DTPDelay);
-            this.GRPTravel.Controls.Add(this.BTNViewCar);
-            this.GRPTravel.Controls.Add(this.LBLDuration);
-            this.GRPTravel.Controls.Add(this.BTNCancelTravel);
-            this.GRPTravel.Controls.Add(this.LBLDelay_Content);
             this.GRPTravel.Controls.Add(this.BTNOrderTravel);
+            this.GRPTravel.Controls.Add(this.DTPDuration);
+            this.GRPTravel.Controls.Add(this.LBLDuration);
+            this.GRPTravel.Controls.Add(this.LBLDelay_Content);
             this.GRPTravel.Controls.Add(this.LBLDelay_Tag);
             this.GRPTravel.Controls.Add(this.TXTDestiny);
             this.GRPTravel.Controls.Add(this.LBLDestiny);
             this.GRPTravel.Controls.Add(this.TXTDeparture);
             this.GRPTravel.Controls.Add(this.LBLDeparture);
+            this.GRPTravel.Enabled = false;
             this.GRPTravel.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.GRPTravel.Location = new System.Drawing.Point(20, 358);
+            this.GRPTravel.Location = new System.Drawing.Point(12, 358);
             this.GRPTravel.Name = "GRPTravel";
-            this.GRPTravel.Size = new System.Drawing.Size(272, 192);
+            this.GRPTravel.Size = new System.Drawing.Size(213, 196);
             this.GRPTravel.TabIndex = 8;
             this.GRPTravel.TabStop = false;
             this.GRPTravel.Text = "Viaje";
             // 
-            // DTPDelay
+            // BTNOrderTravel
             // 
-            this.DTPDelay.CustomFormat = "hh:mm";
-            this.DTPDelay.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.DTPDelay.Location = new System.Drawing.Point(123, 124);
-            this.DTPDelay.Name = "DTPDelay";
-            this.DTPDelay.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.DTPDelay.ShowUpDown = true;
-            this.DTPDelay.Size = new System.Drawing.Size(63, 29);
-            this.DTPDelay.TabIndex = 10;
+            this.BTNOrderTravel.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.BTNOrderTravel.Location = new System.Drawing.Point(47, 125);
+            this.BTNOrderTravel.Name = "BTNOrderTravel";
+            this.BTNOrderTravel.Size = new System.Drawing.Size(107, 23);
+            this.BTNOrderTravel.TabIndex = 11;
+            this.BTNOrderTravel.Text = "Pedir";
+            this.BTNOrderTravel.UseVisualStyleBackColor = true;
+            this.BTNOrderTravel.Click += new System.EventHandler(this.BTNOrderTravel_Click);
             // 
-            // BTNViewCar
+            // DTPDuration
             // 
-            this.BTNViewCar.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.BTNViewCar.Location = new System.Drawing.Point(189, 159);
-            this.BTNViewCar.Name = "BTNViewCar";
-            this.BTNViewCar.Size = new System.Drawing.Size(75, 23);
-            this.BTNViewCar.TabIndex = 10;
-            this.BTNViewCar.Text = "Ver Auto";
-            this.BTNViewCar.UseVisualStyleBackColor = true;
+            this.DTPDuration.CustomFormat = "hh:mm";
+            this.DTPDuration.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.DTPDuration.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.DTPDuration.Location = new System.Drawing.Point(121, 87);
+            this.DTPDuration.Name = "DTPDuration";
+            this.DTPDuration.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.DTPDuration.ShowUpDown = true;
+            this.DTPDuration.Size = new System.Drawing.Size(74, 25);
+            this.DTPDuration.TabIndex = 10;
+            this.DTPDuration.Value = new System.DateTime(2022, 1, 1, 0, 0, 0, 0);
             // 
             // LBLDuration
             // 
             this.LBLDuration.AutoSize = true;
             this.LBLDuration.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.LBLDuration.Location = new System.Drawing.Point(8, 130);
+            this.LBLDuration.Location = new System.Drawing.Point(6, 92);
             this.LBLDuration.Name = "LBLDuration";
             this.LBLDuration.Size = new System.Drawing.Size(109, 15);
             this.LBLDuration.TabIndex = 8;
             this.LBLDuration.Text = "Duración al destino";
-            // 
-            // BTNCancelTravel
-            // 
-            this.BTNCancelTravel.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.BTNCancelTravel.Location = new System.Drawing.Point(138, 91);
-            this.BTNCancelTravel.Name = "BTNCancelTravel";
-            this.BTNCancelTravel.Size = new System.Drawing.Size(75, 23);
-            this.BTNCancelTravel.TabIndex = 4;
-            this.BTNCancelTravel.Text = "Cancelar";
-            this.BTNCancelTravel.UseVisualStyleBackColor = true;
             // 
             // LBLDelay_Content
             // 
@@ -306,17 +343,6 @@
             this.LBLDelay_Content.TabIndex = 7;
             this.LBLDelay_Content.Text = "00:00:00";
             this.LBLDelay_Content.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // BTNOrderTravel
-            // 
-            this.BTNOrderTravel.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.BTNOrderTravel.Location = new System.Drawing.Point(57, 91);
-            this.BTNOrderTravel.Name = "BTNOrderTravel";
-            this.BTNOrderTravel.Size = new System.Drawing.Size(75, 23);
-            this.BTNOrderTravel.TabIndex = 3;
-            this.BTNOrderTravel.Text = "Pedir";
-            this.BTNOrderTravel.UseVisualStyleBackColor = true;
-            this.BTNOrderTravel.Click += new System.EventHandler(this.BTNOrderTravel_Click);
             // 
             // LBLDelay_Tag
             // 
@@ -333,7 +359,7 @@
             this.TXTDestiny.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.TXTDestiny.Location = new System.Drawing.Point(58, 57);
             this.TXTDestiny.Name = "TXTDestiny";
-            this.TXTDestiny.Size = new System.Drawing.Size(206, 23);
+            this.TXTDestiny.Size = new System.Drawing.Size(146, 23);
             this.TXTDestiny.TabIndex = 3;
             // 
             // LBLDestiny
@@ -351,7 +377,7 @@
             this.TXTDeparture.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.TXTDeparture.Location = new System.Drawing.Point(58, 28);
             this.TXTDeparture.Name = "TXTDeparture";
-            this.TXTDeparture.Size = new System.Drawing.Size(206, 23);
+            this.TXTDeparture.Size = new System.Drawing.Size(146, 23);
             this.TXTDeparture.TabIndex = 1;
             // 
             // LBLDeparture
@@ -364,11 +390,77 @@
             this.LBLDeparture.TabIndex = 0;
             this.LBLDeparture.Text = "Partida";
             // 
+            // BTNViewCar
+            // 
+            this.BTNViewCar.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.BTNViewCar.Location = new System.Drawing.Point(259, 360);
+            this.BTNViewCar.Name = "BTNViewCar";
+            this.BTNViewCar.Size = new System.Drawing.Size(137, 23);
+            this.BTNViewCar.TabIndex = 10;
+            this.BTNViewCar.Text = "VER AUTO";
+            this.BTNViewCar.UseVisualStyleBackColor = true;
+            this.BTNViewCar.Click += new System.EventHandler(this.BTNViewCar_Click);
+            // 
+            // BTNCancelTravel
+            // 
+            this.BTNCancelTravel.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.BTNCancelTravel.Location = new System.Drawing.Point(413, 360);
+            this.BTNCancelTravel.Name = "BTNCancelTravel";
+            this.BTNCancelTravel.Size = new System.Drawing.Size(137, 23);
+            this.BTNCancelTravel.TabIndex = 12;
+            this.BTNCancelTravel.Text = "CANCELAR";
+            this.BTNCancelTravel.UseVisualStyleBackColor = true;
+            this.BTNCancelTravel.Click += new System.EventHandler(this.BTNCancelTravel_Click);
+            // 
+            // BTNArrived
+            // 
+            this.BTNArrived.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.BTNArrived.Location = new System.Drawing.Point(566, 360);
+            this.BTNArrived.Name = "BTNArrived";
+            this.BTNArrived.Size = new System.Drawing.Size(137, 23);
+            this.BTNArrived.TabIndex = 13;
+            this.BTNArrived.Text = "LLEGO AL DESTINO";
+            this.BTNArrived.UseVisualStyleBackColor = true;
+            this.BTNArrived.Click += new System.EventHandler(this.BTNArrived_Click);
+            // 
+            // DGVTravels
+            // 
+            this.DGVTravels.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DGVTravels.Location = new System.Drawing.Point(247, 78);
+            this.DGVTravels.Name = "DGVTravels";
+            this.DGVTravels.Size = new System.Drawing.Size(469, 276);
+            this.DGVTravels.TabIndex = 14;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(243, 26);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(61, 24);
+            this.label2.TabIndex = 15;
+            this.label2.Text = "Viajes";
+            // 
+            // label3
+            // 
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(243, 50);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(469, 20);
+            this.label3.TabIndex = 16;
+            this.label3.Text = "──────────────────────────────────────────────────";
+            // 
             // FRMRecepcion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(313, 563);
+            this.ClientSize = new System.Drawing.Size(738, 570);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.BTNCancelTravel);
+            this.Controls.Add(this.BTNViewCar);
+            this.Controls.Add(this.DGVTravels);
+            this.Controls.Add(this.BTNArrived);
             this.Controls.Add(this.GRPTravel);
             this.Controls.Add(this.GRPCustomer);
             this.Controls.Add(this.GRPAuthenticate);
@@ -380,9 +472,12 @@
             this.GRPAuthenticate.PerformLayout();
             this.GRPCustomer.ResumeLayout(false);
             this.GRPCustomer.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.NUDTelephone)).EndInit();
             this.GRPTravel.ResumeLayout(false);
             this.GRPTravel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DGVTravels)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -400,9 +495,7 @@
         private System.Windows.Forms.TextBox TXTName;
         private System.Windows.Forms.Label LBLName;
         private System.Windows.Forms.GroupBox GRPTravel;
-        private System.Windows.Forms.Button BTNCancelTravel;
         private System.Windows.Forms.Label LBLDelay_Content;
-        private System.Windows.Forms.Button BTNOrderTravel;
         private System.Windows.Forms.Label LBLDelay_Tag;
         private System.Windows.Forms.TextBox TXTDestiny;
         private System.Windows.Forms.Label LBLDestiny;
@@ -415,7 +508,15 @@
         private System.Windows.Forms.Button BTNViewCar;
         private System.Windows.Forms.Label LBLBirthDay;
         private System.Windows.Forms.DateTimePicker DTPBirthDay;
-        private System.Windows.Forms.DateTimePicker DTPDelay;
+        private System.Windows.Forms.DateTimePicker DTPDuration;
+        private System.Windows.Forms.Button BTNCancelTravel;
+        private System.Windows.Forms.Button BTNOrderTravel;
+        private System.Windows.Forms.Button BTNArrived;
+        private System.Windows.Forms.DataGridView DGVTravels;
+        private System.Windows.Forms.NumericUpDown NUDTelephone;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
     }
 }
 
