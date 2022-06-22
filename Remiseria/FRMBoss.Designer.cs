@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.GRPDrivers = new System.Windows.Forms.GroupBox();
+            this.DGVDrivers = new System.Windows.Forms.DataGridView();
             this.BTNFinish = new System.Windows.Forms.Button();
             this.BTNContinue = new System.Windows.Forms.Button();
             this.BTNPresentDrivers = new System.Windows.Forms.Button();
@@ -49,12 +50,11 @@
             this.LBLName = new System.Windows.Forms.Label();
             this.LBLSchedule = new System.Windows.Forms.Label();
             this.DTPSchedule = new System.Windows.Forms.DateTimePicker();
-            this.DGVDrivers = new System.Windows.Forms.DataGridView();
             this.GRPDrivers.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DGVDrivers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGVDriversLate)).BeginInit();
             this.GRPAddDriver.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NUDTelephone)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DGVDrivers)).BeginInit();
             this.SuspendLayout();
             // 
             // GRPDrivers
@@ -71,6 +71,15 @@
             this.GRPDrivers.TabIndex = 0;
             this.GRPDrivers.TabStop = false;
             this.GRPDrivers.Text = "Choferes";
+            // 
+            // DGVDrivers
+            // 
+            this.DGVDrivers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DGVDrivers.Location = new System.Drawing.Point(15, 29);
+            this.DGVDrivers.Name = "DGVDrivers";
+            this.DGVDrivers.ReadOnly = true;
+            this.DGVDrivers.Size = new System.Drawing.Size(503, 184);
+            this.DGVDrivers.TabIndex = 0;
             // 
             // BTNFinish
             // 
@@ -272,15 +281,6 @@
             this.DTPSchedule.Size = new System.Drawing.Size(70, 20);
             this.DTPSchedule.TabIndex = 15;
             // 
-            // DGVDrivers
-            // 
-            this.DGVDrivers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DGVDrivers.Location = new System.Drawing.Point(15, 29);
-            this.DGVDrivers.Name = "DGVDrivers";
-            this.DGVDrivers.ReadOnly = true;
-            this.DGVDrivers.Size = new System.Drawing.Size(503, 184);
-            this.DGVDrivers.TabIndex = 3;
-            // 
             // FRMBoss
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -292,14 +292,14 @@
             this.Controls.Add(this.LBLReloj);
             this.Controls.Add(this.GRPDrivers);
             this.Name = "FRMBoss";
-            this.Text = "FRMJefe";
+            this.Text = "Jefe";
             this.Load += new System.EventHandler(this.FRMBoos_Load);
             this.GRPDrivers.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.DGVDrivers)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGVDriversLate)).EndInit();
             this.GRPAddDriver.ResumeLayout(false);
             this.GRPAddDriver.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NUDTelephone)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DGVDrivers)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

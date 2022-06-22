@@ -66,7 +66,7 @@ namespace Clases
 
         public override string ToString()
         {
-            return string.Format("Nombre: {0} - Apellido: {1} - Ganancias: {2} - Modelo de Auto: {3}  - Color de Auto: {4}", Name, Surname, Earnings, Car.Model, Car.Color);
+            return string.Format("{0} {1}", Name, Surname);
         }
 
         public void AsignarAuto(Car car_p)

@@ -17,7 +17,7 @@ namespace Clases
         [DisplayName("Color")]
         public string Color { get; set; }
         [DisplayName("Patente")]
-        public char[] Patent { get; set; }
+        public string Patent { get; set; }
         private decimal costFuel;
         [DisplayName("Costo Combustible")]
         public decimal CostFuel
@@ -32,16 +32,15 @@ namespace Clases
                 else costFuel = 0;
             }
         }
-
+        
         private static List<Car> ListCars;
 
 
-        public Car(char[] patent_p, string bland_p = "", string model_p = "", string color_p = "", decimal costFuel_p = 0)
+        public Car(string patent_p, string bland_p = "", string model_p = "", string color_p = "", decimal costFuel_p = 0)
         {
             Bland = bland_p;
             Model = model_p;
             Color = color_p;
-            Patent = new char[8];
             Patent = patent_p;
             costFuel = costFuel_p;
 
@@ -53,9 +52,7 @@ namespace Clases
             Bland = "n/n";
             Model = "n/n";
             Color = "n/n";
-            Patent = new char [8];
-            for (int i = 0; i < 8; i++)
-                Patent[i] = '0';
+            Patent = "AAA000";
             costFuel = 0;
 
             ListCars = new List<Car>();

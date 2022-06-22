@@ -67,10 +67,9 @@ namespace Clases
 
         public void Arrived()
         {
-            CalculateDelay();
             if (IncomeLocalDelay.Minute < 5) IncomeLocalDelay = new DateTime();
-
             IncomeLocal = DateTime.Now;
+            CalculateDelay();
         }
 
         public void CalculateDelay()

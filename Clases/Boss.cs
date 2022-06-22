@@ -8,15 +8,9 @@ namespace Clases
 {
     public class Boss : Person
     {
-        public void CheckPresenceDrivers(Driver driver, bool present)
+        public void AddAbsences(Driver driver)
         {
-            if(present)
-            {
-                driver.CalculateDelay();
-                driver.IncomeLocal = DateTime.Now;
-            }
-            else
-                driver.Absences.Add(DateTime.Now);
+            driver.Absences.Add(DateTime.Now);
         }
     }
 }

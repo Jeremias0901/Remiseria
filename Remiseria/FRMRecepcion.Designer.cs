@@ -63,11 +63,11 @@ namespace Remiseria
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.GRPDriver = new System.Windows.Forms.GroupBox();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.LBLEarning = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.BTNSave = new System.Windows.Forms.Button();
             this.LBLDriver = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.LBLEarning = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.GRPAuthenticate.SuspendLayout();
             this.GRPCustomer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NUDTelephone)).BeginInit();
@@ -433,7 +433,7 @@ namespace Remiseria
             // DGVTravels
             // 
             this.DGVTravels.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DGVTravels.Location = new System.Drawing.Point(247, 78);
+            this.DGVTravels.Location = new System.Drawing.Point(248, 78);
             this.DGVTravels.Name = "DGVTravels";
             this.DGVTravels.Size = new System.Drawing.Size(469, 276);
             this.DGVTravels.TabIndex = 3;
@@ -473,6 +473,33 @@ namespace Remiseria
             this.GRPDriver.TabStop = false;
             this.GRPDriver.Text = "Chofer";
             // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.numericUpDown1.Location = new System.Drawing.Point(268, 28);
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(95, 22);
+            this.numericUpDown1.TabIndex = 6;
+            // 
+            // LBLEarning
+            // 
+            this.LBLEarning.AutoSize = true;
+            this.LBLEarning.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.LBLEarning.Location = new System.Drawing.Point(206, 31);
+            this.LBLEarning.Name = "LBLEarning";
+            this.LBLEarning.Size = new System.Drawing.Size(56, 15);
+            this.LBLEarning.TabIndex = 5;
+            this.LBLEarning.Text = "Ganancia";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(57, 29);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.TabIndex = 4;
+            // 
             // BTNSave
             // 
             this.BTNSave.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -492,33 +519,6 @@ namespace Remiseria
             this.LBLDriver.Size = new System.Drawing.Size(43, 15);
             this.LBLDriver.TabIndex = 0;
             this.LBLDriver.Text = "Chofer";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(57, 29);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 4;
-            // 
-            // LBLEarning
-            // 
-            this.LBLEarning.AutoSize = true;
-            this.LBLEarning.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.LBLEarning.Location = new System.Drawing.Point(206, 31);
-            this.LBLEarning.Name = "LBLEarning";
-            this.LBLEarning.Size = new System.Drawing.Size(56, 15);
-            this.LBLEarning.TabIndex = 5;
-            this.LBLEarning.Text = "Ganancia";
-            // 
-            // numericUpDown1
-            // 
-            this.numericUpDown1.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.numericUpDown1.Location = new System.Drawing.Point(268, 28);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(95, 22);
-            this.numericUpDown1.TabIndex = 6;
             // 
             // FRMRecepcion
             // 

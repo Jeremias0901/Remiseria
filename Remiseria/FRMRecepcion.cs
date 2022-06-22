@@ -21,9 +21,6 @@ namespace Remiseria
         }
         private void FRMRecepcion_Load(object sender, EventArgs e)
         {
-            FRMBoss frmBoss = new FRMBoss();
-
-            frmBoss.Show();
         }
         private void BTNFind_Click(object sender, EventArgs e)
         {

@@ -16,7 +16,7 @@ namespace Remiseria
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FRMBoss());
+            Application.Run(new FRMBoss() );
         }
     }
 }

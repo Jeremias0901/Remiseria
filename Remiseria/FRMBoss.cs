@@ -28,10 +28,17 @@ namespace Remiseria
 
         private void BTNFinish_Click(object sender, EventArgs e)
         {
+            Boss boss = new Boss();
+
+            foreach (Driver driver in GetAusentes())
+            {
+                boss.AddAbsences(driver);
+            }
+            
             FRMCars frmCars = new FRMCars();
 
-            frmCars.ShowDialog();
-            this.Close();
+            frmCars.Show();
+            this.Hide();
         }
 
         private void FRMBoos_Load(object sender, EventArgs e)
@@ -87,8 +94,6 @@ namespace Remiseria
         private void BTNContinue_Click(object sender, EventArgs e)
         {
             DGVDriversLate.DataSource = GetAusentes();
-
-
         }
 
         public List<Driver> GetAusentes()
@@ -108,7 +113,21 @@ namespace Remiseria
 
         private void BTNArrived_Click(object sender, EventArgs e)
         {
+            if (DGVDriversLate.SelectedRows.Count < 1)
+            {
+                MessageBox.Show("Debe seleccionar al menos 1 chofer.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                foreach (DataGridViewRow fila in DGVDriversLate.SelectedRows)
+                {
+                    driver = (Driver)fila.DataBoundItem;
 
+                    driver.Arrived();
+                    
+                    DGVDrivers.ClearSelection();
+                }
+            }
         }
     }
 }
