@@ -21,13 +21,15 @@ namespace Remiseria
         }
         private void FRMRecepcion_Load(object sender, EventArgs e)
         {
-            
+            FRMBoss frmBoss = new FRMBoss();
+
+            frmBoss.Show();
         }
         private void BTNFind_Click(object sender, EventArgs e)
         {
             if ( ValidBlanks_Authenticate() )
             {
-                o_customer = Customers.Find(Convert.ToInt32(MTXCode.Text));
+                o_customer = Customers.FindCustomer(Convert.ToInt32(MTXCode.Text));
 
                 if (!o_customer.Equals(new Customers()))
                 {
@@ -70,7 +72,7 @@ namespace Remiseria
             if (ValidBlanks_Customer())
             {
                 o_customer = new Customers(code_p: Convert.ToInt32(LBLCode_Content.Text), name_p: TXTName.Text, surname_p: TXTSurname.Text, birthDay_p: DTPBirthDay.Value, telephone_p: Convert.ToInt32(NUDTelephone.Value));
-                o_customer.Save();
+                o_customer.SaveCustomer();
 
                 GRPCustomer.Enabled = false;
                 GRPTravel.Enabled = true;
@@ -91,7 +93,7 @@ namespace Remiseria
                 o_customer.OrderTravel(travel);
 
                 DGVTravels.DataSource = null;
-                DGVTravels.DataSource = Customers.Find();
+                DGVTravels.DataSource = Customers.GetListCustomer();
 
                 GRPAuthenticate.Enabled = true;
                 GRPTravel.Enabled = false;
@@ -102,6 +104,8 @@ namespace Remiseria
                 TXTDeparture.Text = "";
                 TXTDestiny.Text = "";
                 DTPDuration.Value = new DateTime(2001, 1, 1);
+
+                VaciarCampos();
             }
         }
 

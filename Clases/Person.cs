@@ -3,16 +3,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel;
 
 namespace Clases
 {
     public abstract class Person
     {
+        [DisplayName("Nombre")]
         public string Name {get; set;}
+        [DisplayName("Apellido")]
         public string Surname { get; set; }
+        [DisplayName("Fecha de Nacimiento")]
         public DateTime BirthDay { get; set; }
         private int telephono;
-        public int Telephone
+        [DisplayName("Telefono")]
+        public int Telephono
         {
             get
             {
@@ -28,12 +33,19 @@ namespace Clases
             }
         }
 
-        public Person(string name_p = "", string surname_p = "", DateTime birthDay_p = new DateTime(), int telephono_p = 0)
+        public Person(string name_p, string surname_p, DateTime birthDay_p, int telephono_p)
         {
             Name = name_p;
             Surname = surname_p;
             BirthDay = birthDay_p;
-            Telephone = telephono_p;
+            Telephono = telephono_p;
+        }
+        public Person()
+        {
+            Name = "n/n";
+            Surname = "n/n";
+            BirthDay = new DateTime();
+            Telephono = 0;
         }
 
         public bool BirthToday()

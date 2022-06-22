@@ -45,11 +45,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FRMBoos.cs">
+    <Compile Include="FRMCars.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FRMBoos.Designer.cs">
-      <DependentUpon>FRMBoos.cs</DependentUpon>
+    <Compile Include="FRMCars.Designer.cs">
+      <DependentUpon>FRMCars.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FRMDrivers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FRMDrivers.Designer.cs">
+      <DependentUpon>FRMDrivers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FRMBoss.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FRMBoss.Designer.cs">
+      <DependentUpon>FRMBoss.cs</DependentUpon>
     </Compile>
     <Compile Include="FRMRecepcion.cs">
       <SubType>Form</SubType>
@@ -59,8 +71,14 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FRMBoos.resx">
-      <DependentUpon>FRMBoos.cs</DependentUpon>
+    <EmbeddedResource Include="FRMCars.resx">
+      <DependentUpon>FRMCars.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FRMDrivers.resx">
+      <DependentUpon>FRMDrivers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FRMBoss.resx">
+      <DependentUpon>FRMBoss.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FRMRecepcion.resx">
       <DependentUpon>FRMRecepcion.cs</DependentUpon>

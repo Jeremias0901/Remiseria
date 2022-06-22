@@ -62,11 +62,19 @@ namespace Remiseria
             this.DGVTravels = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.GRPDriver = new System.Windows.Forms.GroupBox();
+            this.BTNSave = new System.Windows.Forms.Button();
+            this.LBLDriver = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.LBLEarning = new System.Windows.Forms.Label();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.GRPAuthenticate.SuspendLayout();
             this.GRPCustomer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NUDTelephone)).BeginInit();
             this.GRPTravel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGVTravels)).BeginInit();
+            this.GRPDriver.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
             // GRPAuthenticate
@@ -90,9 +98,8 @@ namespace Remiseria
             this.LBLEstado.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold);
             this.LBLEstado.Location = new System.Drawing.Point(56, 85);
             this.LBLEstado.Name = "LBLEstado";
-            this.LBLEstado.Size = new System.Drawing.Size(51, 17);
+            this.LBLEstado.Size = new System.Drawing.Size(0, 17);
             this.LBLEstado.TabIndex = 9;
-            this.LBLEstado.Text = "Cliente";
             // 
             // MTXCode
             // 
@@ -101,7 +108,7 @@ namespace Remiseria
             this.MTXCode.Mask = "000000";
             this.MTXCode.Name = "MTXCode";
             this.MTXCode.Size = new System.Drawing.Size(100, 23);
-            this.MTXCode.TabIndex = 8;
+            this.MTXCode.TabIndex = 80;
             this.MTXCode.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // BTNGenerate
@@ -154,7 +161,7 @@ namespace Remiseria
             this.GRPCustomer.Location = new System.Drawing.Point(12, 132);
             this.GRPCustomer.Name = "GRPCustomer";
             this.GRPCustomer.Size = new System.Drawing.Size(213, 220);
-            this.GRPCustomer.TabIndex = 3;
+            this.GRPCustomer.TabIndex = 1;
             this.GRPCustomer.TabStop = false;
             this.GRPCustomer.Text = "Cliente";
             // 
@@ -174,7 +181,7 @@ namespace Remiseria
             0});
             this.NUDTelephone.Name = "NUDTelephone";
             this.NUDTelephone.Size = new System.Drawing.Size(100, 23);
-            this.NUDTelephone.TabIndex = 11;
+            this.NUDTelephone.TabIndex = 3;
             this.NUDTelephone.Value = new decimal(new int[] {
             1000000000,
             0,
@@ -200,7 +207,7 @@ namespace Remiseria
             this.DTPBirthDay.MaxDate = new System.DateTime(2060, 12, 31, 0, 0, 0, 0);
             this.DTPBirthDay.Name = "DTPBirthDay";
             this.DTPBirthDay.Size = new System.Drawing.Size(100, 23);
-            this.DTPBirthDay.TabIndex = 9;
+            this.DTPBirthDay.TabIndex = 2;
             this.DTPBirthDay.Value = new System.DateTime(2001, 1, 1, 0, 0, 0, 0);
             // 
             // LBLBirthDay
@@ -219,7 +226,7 @@ namespace Remiseria
             this.BTNRegister.Location = new System.Drawing.Point(63, 191);
             this.BTNRegister.Name = "BTNRegister";
             this.BTNRegister.Size = new System.Drawing.Size(75, 23);
-            this.BTNRegister.TabIndex = 8;
+            this.BTNRegister.TabIndex = 4;
             this.BTNRegister.Text = "Registrar";
             this.BTNRegister.UseVisualStyleBackColor = true;
             this.BTNRegister.Click += new System.EventHandler(this.BTNRegister_Click);
@@ -250,7 +257,7 @@ namespace Remiseria
             this.TXTSurname.Location = new System.Drawing.Point(86, 62);
             this.TXTSurname.Name = "TXTSurname";
             this.TXTSurname.Size = new System.Drawing.Size(100, 23);
-            this.TXTSurname.TabIndex = 3;
+            this.TXTSurname.TabIndex = 1;
             // 
             // LBLSurname
             // 
@@ -268,7 +275,7 @@ namespace Remiseria
             this.TXTName.Location = new System.Drawing.Point(86, 33);
             this.TXTName.Name = "TXTName";
             this.TXTName.Size = new System.Drawing.Size(100, 23);
-            this.TXTName.TabIndex = 1;
+            this.TXTName.TabIndex = 0;
             // 
             // LBLName
             // 
@@ -296,7 +303,7 @@ namespace Remiseria
             this.GRPTravel.Location = new System.Drawing.Point(12, 358);
             this.GRPTravel.Name = "GRPTravel";
             this.GRPTravel.Size = new System.Drawing.Size(213, 196);
-            this.GRPTravel.TabIndex = 8;
+            this.GRPTravel.TabIndex = 2;
             this.GRPTravel.TabStop = false;
             this.GRPTravel.Text = "Viaje";
             // 
@@ -306,7 +313,7 @@ namespace Remiseria
             this.BTNOrderTravel.Location = new System.Drawing.Point(47, 125);
             this.BTNOrderTravel.Name = "BTNOrderTravel";
             this.BTNOrderTravel.Size = new System.Drawing.Size(107, 23);
-            this.BTNOrderTravel.TabIndex = 11;
+            this.BTNOrderTravel.TabIndex = 3;
             this.BTNOrderTravel.Text = "Pedir";
             this.BTNOrderTravel.UseVisualStyleBackColor = true;
             this.BTNOrderTravel.Click += new System.EventHandler(this.BTNOrderTravel_Click);
@@ -321,7 +328,7 @@ namespace Remiseria
             this.DTPDuration.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.DTPDuration.ShowUpDown = true;
             this.DTPDuration.Size = new System.Drawing.Size(74, 25);
-            this.DTPDuration.TabIndex = 10;
+            this.DTPDuration.TabIndex = 2;
             this.DTPDuration.Value = new System.DateTime(2022, 1, 1, 0, 0, 0, 0);
             // 
             // LBLDuration
@@ -360,7 +367,7 @@ namespace Remiseria
             this.TXTDestiny.Location = new System.Drawing.Point(58, 57);
             this.TXTDestiny.Name = "TXTDestiny";
             this.TXTDestiny.Size = new System.Drawing.Size(146, 23);
-            this.TXTDestiny.TabIndex = 3;
+            this.TXTDestiny.TabIndex = 1;
             // 
             // LBLDestiny
             // 
@@ -378,7 +385,7 @@ namespace Remiseria
             this.TXTDeparture.Location = new System.Drawing.Point(58, 28);
             this.TXTDeparture.Name = "TXTDeparture";
             this.TXTDeparture.Size = new System.Drawing.Size(146, 23);
-            this.TXTDeparture.TabIndex = 1;
+            this.TXTDeparture.TabIndex = 0;
             // 
             // LBLDeparture
             // 
@@ -396,7 +403,7 @@ namespace Remiseria
             this.BTNViewCar.Location = new System.Drawing.Point(259, 360);
             this.BTNViewCar.Name = "BTNViewCar";
             this.BTNViewCar.Size = new System.Drawing.Size(137, 23);
-            this.BTNViewCar.TabIndex = 10;
+            this.BTNViewCar.TabIndex = 4;
             this.BTNViewCar.Text = "VER AUTO";
             this.BTNViewCar.UseVisualStyleBackColor = true;
             this.BTNViewCar.Click += new System.EventHandler(this.BTNViewCar_Click);
@@ -407,7 +414,7 @@ namespace Remiseria
             this.BTNCancelTravel.Location = new System.Drawing.Point(413, 360);
             this.BTNCancelTravel.Name = "BTNCancelTravel";
             this.BTNCancelTravel.Size = new System.Drawing.Size(137, 23);
-            this.BTNCancelTravel.TabIndex = 12;
+            this.BTNCancelTravel.TabIndex = 5;
             this.BTNCancelTravel.Text = "CANCELAR";
             this.BTNCancelTravel.UseVisualStyleBackColor = true;
             this.BTNCancelTravel.Click += new System.EventHandler(this.BTNCancelTravel_Click);
@@ -418,7 +425,7 @@ namespace Remiseria
             this.BTNArrived.Location = new System.Drawing.Point(566, 360);
             this.BTNArrived.Name = "BTNArrived";
             this.BTNArrived.Size = new System.Drawing.Size(137, 23);
-            this.BTNArrived.TabIndex = 13;
+            this.BTNArrived.TabIndex = 6;
             this.BTNArrived.Text = "LLEGO AL DESTINO";
             this.BTNArrived.UseVisualStyleBackColor = true;
             this.BTNArrived.Click += new System.EventHandler(this.BTNArrived_Click);
@@ -429,7 +436,7 @@ namespace Remiseria
             this.DGVTravels.Location = new System.Drawing.Point(247, 78);
             this.DGVTravels.Name = "DGVTravels";
             this.DGVTravels.Size = new System.Drawing.Size(469, 276);
-            this.DGVTravels.TabIndex = 14;
+            this.DGVTravels.TabIndex = 3;
             // 
             // label2
             // 
@@ -450,11 +457,75 @@ namespace Remiseria
             this.label3.TabIndex = 16;
             this.label3.Text = "──────────────────────────────────────────────────";
             // 
+            // GRPDriver
+            // 
+            this.GRPDriver.Controls.Add(this.numericUpDown1);
+            this.GRPDriver.Controls.Add(this.LBLEarning);
+            this.GRPDriver.Controls.Add(this.comboBox1);
+            this.GRPDriver.Controls.Add(this.BTNSave);
+            this.GRPDriver.Controls.Add(this.LBLDriver);
+            this.GRPDriver.Enabled = false;
+            this.GRPDriver.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.GRPDriver.Location = new System.Drawing.Point(291, 428);
+            this.GRPDriver.Name = "GRPDriver";
+            this.GRPDriver.Size = new System.Drawing.Size(383, 100);
+            this.GRPDriver.TabIndex = 9;
+            this.GRPDriver.TabStop = false;
+            this.GRPDriver.Text = "Chofer";
+            // 
+            // BTNSave
+            // 
+            this.BTNSave.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.BTNSave.Location = new System.Drawing.Point(139, 60);
+            this.BTNSave.Name = "BTNSave";
+            this.BTNSave.Size = new System.Drawing.Size(107, 23);
+            this.BTNSave.TabIndex = 3;
+            this.BTNSave.Text = "Guardar";
+            this.BTNSave.UseVisualStyleBackColor = true;
+            // 
+            // LBLDriver
+            // 
+            this.LBLDriver.AutoSize = true;
+            this.LBLDriver.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.LBLDriver.Location = new System.Drawing.Point(8, 31);
+            this.LBLDriver.Name = "LBLDriver";
+            this.LBLDriver.Size = new System.Drawing.Size(43, 15);
+            this.LBLDriver.TabIndex = 0;
+            this.LBLDriver.Text = "Chofer";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(57, 29);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.TabIndex = 4;
+            // 
+            // LBLEarning
+            // 
+            this.LBLEarning.AutoSize = true;
+            this.LBLEarning.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.LBLEarning.Location = new System.Drawing.Point(206, 31);
+            this.LBLEarning.Name = "LBLEarning";
+            this.LBLEarning.Size = new System.Drawing.Size(56, 15);
+            this.LBLEarning.TabIndex = 5;
+            this.LBLEarning.Text = "Ganancia";
+            // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.numericUpDown1.Location = new System.Drawing.Point(268, 28);
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(95, 22);
+            this.numericUpDown1.TabIndex = 6;
+            // 
             // FRMRecepcion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(738, 570);
+            this.Controls.Add(this.GRPDriver);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.BTNCancelTravel);
@@ -476,6 +547,9 @@ namespace Remiseria
             this.GRPTravel.ResumeLayout(false);
             this.GRPTravel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGVTravels)).EndInit();
+            this.GRPDriver.ResumeLayout(false);
+            this.GRPDriver.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -517,6 +591,12 @@ namespace Remiseria
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.GroupBox GRPDriver;
+        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.Label LBLEarning;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Button BTNSave;
+        private System.Windows.Forms.Label LBLDriver;
     }
 }
 

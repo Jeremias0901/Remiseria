@@ -3,23 +3,36 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel;
 
 namespace Clases
 {
     public class Customers : Person
     {
-        public Customers(int code_p = 0, string name_p = "n/n", string surname_p = "n/n", DateTime birthDay_p = new DateTime(), int telephone_p = 100000)
+        public Customers(int code_p, string name_p, string surname_p, DateTime birthDay_p, int telephone_p)
         {
             Code = code_p;
             Name = name_p;
             Surname = surname_p;
-            Telephone = telephone_p;
+            Telephono = telephone_p;
             BirthDay = birthDay_p;
 
-            ListCustomers = new List<Customers>();
             ListTravels = new List<Travels>();
+            ListCustomers = new List<Customers>();
+        }
+        public Customers()
+        {
+            Code = 0;
+            Name = "n/n";
+            Surname = "n/n";
+            Telephono = 0;
+            BirthDay = new DateTime();
+
+            ListTravels = new List<Travels>();
+            ListCustomers = new List<Customers>();
         }
 
+        [DisplayName("Codigo")]
         public int Code { set; get; }
         private static List<Travels> ListTravels { get; set; }
         private static List<Customers> ListCustomers { get; set; }
@@ -30,17 +43,21 @@ namespace Clases
         }
         public override string ToString()
         {
-            return string.Format("Codigo: {0} - Nombre: {1} - Apellido: {2} - Telefono: {3}", Code, Name, Surname, Telephone);
+            return string.Format("Codigo: {0} - Nombre: {1} - Apellido: {2} - Telefono: {3}", Code, Name, Surname, Telephono);
         }
         public static List<Travels> GetListTravel()
         {
             return ListTravels;
         }
-        public static List<Customers> Find()
+        public void SaveTravel(Travels travel_p)
         {
-            return ListCustomers;
+            ListTravels.Add(travel_p);
         }
-        public static Customers Find(int code_p)
+        public static int GenerateCode(Random rnd)
+        {
+            return rnd.Next(100000, 999999);
+        }
+        public static Customers FindCustomer(int code_p)
         {
             Customers customer_result = new Customers();
 
@@ -55,19 +72,13 @@ namespace Clases
 
             return customer_result;
         }
-        public void Save()
+        public void SaveCustomer()
         {
             ListCustomers.Add(this);
         }
-        public void SaveTravel(Travels travel_p)
+        public static List<Customers> GetListCustomer()
         {
-            ListTravels.Add(travel_p);
-        }
-        public static int GenerateCode(Random rnd)
-        {
-
-
-            return rnd.Next(100000, 999999);
+            return ListCustomers;
         }
     }
 }

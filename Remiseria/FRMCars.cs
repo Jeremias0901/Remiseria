@@ -10,21 +10,11 @@ using System.Windows.Forms;
 
 namespace Remiseria
 {
-    public partial class FRMBoos : Form
+    public partial class FRMCars : Form
     {
-        public FRMBoos()
+        public FRMCars()
         {
             InitializeComponent();
-        }
-
-        private void TMRReloj_Tick(object sender, EventArgs e)
-        {
-            LBLReloj.Text = string.Format("{0:T}", DateTime.Now);
-        }
-
-        private void BTNFinish_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

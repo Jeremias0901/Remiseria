@@ -1,18 +1,25 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using System.ComponentModel;
+
 namespace Clases
 {
     public class Car
     {
+        [DisplayName("Marca")]
         public string Bland { get; set; }
+        [DisplayName("Modelo")]
         public string Model { get; set; }
+        [DisplayName("Color")]
         public string Color { get; set; }
+        [DisplayName("Patente")]
         public char[] Patent { get; set; }
         private decimal costFuel;
+        [DisplayName("Costo Combustible")]
         public decimal CostFuel
         {
             get { return costFuel; }
@@ -25,7 +32,9 @@ namespace Clases
                 else costFuel = 0;
             }
         }
-        static public List<Car> Cars { get; set; }
+
+        private static List<Car> ListCars;
+
 
         public Car(char[] patent_p, string bland_p = "", string model_p = "", string color_p = "", decimal costFuel_p = 0)
         {
@@ -35,22 +44,35 @@ namespace Clases
             Patent = new char[8];
             Patent = patent_p;
             costFuel = costFuel_p;
+
+            ListCars = new List<Car>();
         }
 
-        public Car(string bland_p = "", string model_p = "", string color_p = "", decimal costFuel_p = 0)
+        public Car()
         {
-            Bland = bland_p;
-            Model = model_p;
-            Color = color_p;
+            Bland = "n/n";
+            Model = "n/n";
+            Color = "n/n";
             Patent = new char [8];
             for (int i = 0; i < 8; i++)
                 Patent[i] = '0';
-            costFuel = costFuel_p;
+            costFuel = 0;
+
+            ListCars = new List<Car>();
         }
 
         public override string ToString()
         {
-            return string.Format("Patente: {0} - Marca: {1} - Modelo: {2} - Color: {3}", Patent, Bland, Model, Color);
+            return string.Format("{0} {1} {2}", Bland, Model, Color);
+        }
+
+        public void SaveCar()
+        {
+            ListCars.Add(this);
+        }
+        public static List<Car> GetListCar()
+        {
+            return ListCars;
         }
     }
 }
