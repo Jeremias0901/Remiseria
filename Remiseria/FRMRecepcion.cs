@@ -28,7 +28,7 @@ namespace Remiseria
             {
                 o_customer = Customers.FindCustomer(Convert.ToInt32(MTXCode.Text));
 
-                if (!o_customer.Equals(new Customers()))
+                if (o_customer.Equals(new Customers()))
                 {
                     LBLEstado.Text = "Cliente Encontrado!";
 
@@ -127,7 +127,7 @@ namespace Remiseria
 
         private void BTNViewCar_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("AUTO");
+            
         }
         public void VaciarCampos()
         {
@@ -159,6 +159,13 @@ namespace Remiseria
         public bool ValidBlanks_Authenticate()
         {
             return ((MTXCode.Text.Length == 6) && (MTXCode.Text != ""));
+        }
+
+        private void BTNSave_Click(object sender, EventArgs e)
+        {
+            Driver driver = CMBDrivers.SelectedItem as Driver;
+            
+            driver.Earn(NUDEarn.Value);
         }
     }
 }

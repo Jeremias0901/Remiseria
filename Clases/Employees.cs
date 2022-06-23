@@ -27,19 +27,16 @@ namespace Clases
                 else salary = 0;
             }
         }
-        [DisplayName("Ingreso Local")]
-        public DateTime IncomeScheduled { get; set; }
         [DisplayName("Ingreso Real")]
         public DateTime IncomeLocal { get; set; }
         [DisplayName("Tardia")]
         public DateTime IncomeLocalDelay { get; set; }
         [DisplayName("Ausencias")]
         public List<DateTime> Absences { get; set; }
-
+        
         public Employees()
         {
             Salary = 0;
-            IncomeScheduled = new DateTime();
             IncomeLocal = new DateTime();
             IncomeLocalDelay = new DateTime();
             IncomeLocalDelay = new DateTime();
@@ -53,7 +50,6 @@ namespace Clases
         public Employees(string name_p, string surname_p, DateTime birthDay_p, int telephono_p, decimal salary_p, DateTime incomeScheduled_p, DateTime incomeLocal_p, DateTime incomeLocalDelay_p, DateTime absences_p)
         {
             Salary = salary_p;
-            IncomeScheduled = incomeScheduled_p;
             IncomeLocal = incomeLocal_p;
             IncomeLocalDelay = incomeLocalDelay_p;
             IncomeLocalDelay = incomeLocalDelay_p;
@@ -74,7 +70,8 @@ namespace Clases
 
         public void CalculateDelay()
         {
-            IncomeLocalDelay = Convert.ToDateTime(IncomeScheduled - IncomeLocal);
+            // IncomeLocalDelay = Convert.ToDateTime(IncomeScheduled - IncomeLocal);
+            IncomeLocalDelay = new DateTime();
         }
 
         public virtual decimal ReceivesRemuneration()

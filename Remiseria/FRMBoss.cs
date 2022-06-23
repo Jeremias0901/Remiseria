@@ -43,7 +43,7 @@ namespace Remiseria
 
         private void FRMBoos_Load(object sender, EventArgs e)
         {
-            LoadListDrivers();
+            
         }
 
         public void LoadListDrivers()
@@ -54,14 +54,26 @@ namespace Remiseria
 
         private void BTNAdd_Click(object sender, EventArgs e)
         {
-            car = new Car();
-            driver = new Driver(TXTName.Text, TXTSurname.Text, car, Convert.ToInt32(NUDTelephone.Value), 0, 0, DTPSchedule.Value, new DateTime(), new DateTime(), new DateTime(), DTPBirthDay.Value);
+            if(camposValidos())
+            {
+                car = new Car();
+                driver = new Driver(TXTName.Text, TXTSurname.Text, car, Convert.ToInt32(NUDTelephone.Value), 0, 0, DTPSchedule.Value, new DateTime(), new DateTime(), new DateTime(), DTPBirthDay.Value);
 
-            driver.SaveDrivers();
+                driver.SaveDrivers();
 
-            LoadListDrivers();
+                LoadListDrivers();
 
-            VaciarCampos();
+                VaciarCampos();
+            }
+            else
+            {
+                MessageBox.Show("Complete correctamente todos los campos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        public bool camposValidos()
+        {
+            return (TXTName.Text != "" && TXTSurname.Text != "");
         }
 
         public void VaciarCampos()
@@ -93,7 +105,20 @@ namespace Remiseria
 
         private void BTNContinue_Click(object sender, EventArgs e)
         {
-            DGVDriversLate.DataSource = GetAusentes();
+            if (Driver.GetListDriver() != null)
+            {
+                if(!GetAusentes().Equals(new List<Driver>()))
+                {
+                    DGVDriversLate.DataSource = GetAusentes();
+
+                    DGVDriversLate.Enabled = true;
+                    BTNArrived.Enabled = true;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Lista de Choferes vacia. Agregue a un chofer", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         public List<Driver> GetAusentes()

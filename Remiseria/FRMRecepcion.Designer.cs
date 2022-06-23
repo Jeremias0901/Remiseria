@@ -63,9 +63,9 @@ namespace Remiseria
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.GRPDriver = new System.Windows.Forms.GroupBox();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.NUDEarn = new System.Windows.Forms.NumericUpDown();
             this.LBLEarning = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.CMBDrivers = new System.Windows.Forms.ComboBox();
             this.BTNSave = new System.Windows.Forms.Button();
             this.LBLDriver = new System.Windows.Forms.Label();
             this.GRPAuthenticate.SuspendLayout();
@@ -74,7 +74,7 @@ namespace Remiseria
             this.GRPTravel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGVTravels)).BeginInit();
             this.GRPDriver.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NUDEarn)).BeginInit();
             this.SuspendLayout();
             // 
             // GRPAuthenticate
@@ -434,6 +434,7 @@ namespace Remiseria
             // 
             this.DGVTravels.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGVTravels.Location = new System.Drawing.Point(248, 78);
+            this.DGVTravels.MultiSelect = false;
             this.DGVTravels.Name = "DGVTravels";
             this.DGVTravels.Size = new System.Drawing.Size(469, 276);
             this.DGVTravels.TabIndex = 3;
@@ -459,27 +460,27 @@ namespace Remiseria
             // 
             // GRPDriver
             // 
-            this.GRPDriver.Controls.Add(this.numericUpDown1);
+            this.GRPDriver.Controls.Add(this.NUDEarn);
             this.GRPDriver.Controls.Add(this.LBLEarning);
-            this.GRPDriver.Controls.Add(this.comboBox1);
+            this.GRPDriver.Controls.Add(this.CMBDrivers);
             this.GRPDriver.Controls.Add(this.BTNSave);
             this.GRPDriver.Controls.Add(this.LBLDriver);
             this.GRPDriver.Enabled = false;
             this.GRPDriver.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.GRPDriver.Location = new System.Drawing.Point(291, 428);
+            this.GRPDriver.Location = new System.Drawing.Point(291, 419);
             this.GRPDriver.Name = "GRPDriver";
             this.GRPDriver.Size = new System.Drawing.Size(383, 100);
             this.GRPDriver.TabIndex = 9;
             this.GRPDriver.TabStop = false;
             this.GRPDriver.Text = "Chofer";
             // 
-            // numericUpDown1
+            // NUDEarn
             // 
-            this.numericUpDown1.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.numericUpDown1.Location = new System.Drawing.Point(268, 28);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(95, 22);
-            this.numericUpDown1.TabIndex = 6;
+            this.NUDEarn.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.NUDEarn.Location = new System.Drawing.Point(268, 28);
+            this.NUDEarn.Name = "NUDEarn";
+            this.NUDEarn.Size = new System.Drawing.Size(95, 22);
+            this.NUDEarn.TabIndex = 6;
             // 
             // LBLEarning
             // 
@@ -491,14 +492,14 @@ namespace Remiseria
             this.LBLEarning.TabIndex = 5;
             this.LBLEarning.Text = "Ganancia";
             // 
-            // comboBox1
+            // CMBDrivers
             // 
-            this.comboBox1.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(57, 29);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 4;
+            this.CMBDrivers.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.CMBDrivers.FormattingEnabled = true;
+            this.CMBDrivers.Location = new System.Drawing.Point(57, 29);
+            this.CMBDrivers.Name = "CMBDrivers";
+            this.CMBDrivers.Size = new System.Drawing.Size(121, 21);
+            this.CMBDrivers.TabIndex = 4;
             // 
             // BTNSave
             // 
@@ -509,6 +510,7 @@ namespace Remiseria
             this.BTNSave.TabIndex = 3;
             this.BTNSave.Text = "Guardar";
             this.BTNSave.UseVisualStyleBackColor = true;
+            this.BTNSave.Click += new System.EventHandler(this.BTNSave_Click);
             // 
             // LBLDriver
             // 
@@ -549,7 +551,7 @@ namespace Remiseria
             ((System.ComponentModel.ISupportInitialize)(this.DGVTravels)).EndInit();
             this.GRPDriver.ResumeLayout(false);
             this.GRPDriver.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NUDEarn)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -592,9 +594,9 @@ namespace Remiseria
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.GroupBox GRPDriver;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown NUDEarn;
         private System.Windows.Forms.Label LBLEarning;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox CMBDrivers;
         private System.Windows.Forms.Button BTNSave;
         private System.Windows.Forms.Label LBLDriver;
     }

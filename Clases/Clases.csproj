@@ -39,7 +39,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Boss.cs" />
     <Compile Include="Car.cs" />
     <Compile Include="Customers.cs" />
     <Compile Include="Driver.cs" />
