@@ -20,3 +20,9 @@ C:\Users\maxi_\Documents\_Jere\_PDISC\TPS\RemiseriaSolucion\Clases\obj\Debug\Cla
 C:\Users\maxi_\Documents\_Jere\_PDISC\TPS\RemiseriaSolucion\Clases\obj\Debug\Clases.csproj.CoreCompileInputs.cache
 C:\Users\maxi_\Documents\_Jere\_PDISC\TPS\RemiseriaSolucion\Clases\obj\Debug\Clases.dll
 C:\Users\maxi_\Documents\_Jere\_PDISC\TPS\RemiseriaSolucion\Clases\obj\Debug\Clases.pdb
+G:\_PDISC\TPS\TP_02\Proyecto\RemiseriaSolucion\Clases\bin\Debug\Clases.dll
+G:\_PDISC\TPS\TP_02\Proyecto\RemiseriaSolucion\Clases\bin\Debug\Clases.pdb
+G:\_PDISC\TPS\TP_02\Proyecto\RemiseriaSolucion\Clases\obj\Debug\Clases.dll
+G:\_PDISC\TPS\TP_02\Proyecto\RemiseriaSolucion\Clases\obj\Debug\Clases.pdb
+G:\_PDISC\TPS\TP_02\Proyecto\RemiseriaSolucion\Clases\obj\Debug\Clases.csproj.AssemblyReference.cache
+G:\_PDISC\TPS\TP_02\Proyecto\RemiseriaSolucion\Clases\obj\Debug\Clases.csproj.CoreCompileInputs.cache

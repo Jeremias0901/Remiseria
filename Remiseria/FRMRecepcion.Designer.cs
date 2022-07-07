@@ -50,8 +50,6 @@ namespace Remiseria
             this.BTNOrderTravel = new System.Windows.Forms.Button();
             this.DTPDuration = new System.Windows.Forms.DateTimePicker();
             this.LBLDuration = new System.Windows.Forms.Label();
-            this.LBLDelay_Content = new System.Windows.Forms.Label();
-            this.LBLDelay_Tag = new System.Windows.Forms.Label();
             this.TXTDestiny = new System.Windows.Forms.TextBox();
             this.LBLDestiny = new System.Windows.Forms.Label();
             this.TXTDeparture = new System.Windows.Forms.TextBox();
@@ -68,7 +66,6 @@ namespace Remiseria
             this.CMBDrivers = new System.Windows.Forms.ComboBox();
             this.BTNSave = new System.Windows.Forms.Button();
             this.LBLDriver = new System.Windows.Forms.Label();
-            this.DGVClientes = new System.Windows.Forms.DataGridView();
             this.GRPAuthenticate.SuspendLayout();
             this.GRPCustomer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NUDTelephone)).BeginInit();
@@ -76,7 +73,6 @@ namespace Remiseria
             ((System.ComponentModel.ISupportInitialize)(this.DGVTravels)).BeginInit();
             this.GRPDriver.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NUDEarn)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DGVClientes)).BeginInit();
             this.SuspendLayout();
             // 
             // GRPAuthenticate
@@ -110,7 +106,7 @@ namespace Remiseria
             this.MTXCode.Mask = "000000";
             this.MTXCode.Name = "MTXCode";
             this.MTXCode.Size = new System.Drawing.Size(100, 23);
-            this.MTXCode.TabIndex = 80;
+            this.MTXCode.TabIndex = 0;
             this.MTXCode.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // BTNGenerate
@@ -294,8 +290,6 @@ namespace Remiseria
             this.GRPTravel.Controls.Add(this.BTNOrderTravel);
             this.GRPTravel.Controls.Add(this.DTPDuration);
             this.GRPTravel.Controls.Add(this.LBLDuration);
-            this.GRPTravel.Controls.Add(this.LBLDelay_Content);
-            this.GRPTravel.Controls.Add(this.LBLDelay_Tag);
             this.GRPTravel.Controls.Add(this.TXTDestiny);
             this.GRPTravel.Controls.Add(this.LBLDestiny);
             this.GRPTravel.Controls.Add(this.TXTDeparture);
@@ -304,7 +298,7 @@ namespace Remiseria
             this.GRPTravel.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.GRPTravel.Location = new System.Drawing.Point(12, 358);
             this.GRPTravel.Name = "GRPTravel";
-            this.GRPTravel.Size = new System.Drawing.Size(213, 196);
+            this.GRPTravel.Size = new System.Drawing.Size(213, 161);
             this.GRPTravel.TabIndex = 2;
             this.GRPTravel.TabStop = false;
             this.GRPTravel.Text = "Viaje";
@@ -312,9 +306,9 @@ namespace Remiseria
             // BTNOrderTravel
             // 
             this.BTNOrderTravel.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.BTNOrderTravel.Location = new System.Drawing.Point(47, 125);
+            this.BTNOrderTravel.Location = new System.Drawing.Point(63, 125);
             this.BTNOrderTravel.Name = "BTNOrderTravel";
-            this.BTNOrderTravel.Size = new System.Drawing.Size(107, 23);
+            this.BTNOrderTravel.Size = new System.Drawing.Size(68, 23);
             this.BTNOrderTravel.TabIndex = 3;
             this.BTNOrderTravel.Text = "Pedir";
             this.BTNOrderTravel.UseVisualStyleBackColor = true;
@@ -342,26 +336,6 @@ namespace Remiseria
             this.LBLDuration.Size = new System.Drawing.Size(109, 15);
             this.LBLDuration.TabIndex = 8;
             this.LBLDuration.Text = "Duración al destino";
-            // 
-            // LBLDelay_Content
-            // 
-            this.LBLDelay_Content.Font = new System.Drawing.Font("Consolas", 10F, System.Drawing.FontStyle.Bold);
-            this.LBLDelay_Content.Location = new System.Drawing.Point(58, 159);
-            this.LBLDelay_Content.Name = "LBLDelay_Content";
-            this.LBLDelay_Content.Size = new System.Drawing.Size(76, 23);
-            this.LBLDelay_Content.TabIndex = 7;
-            this.LBLDelay_Content.Text = "00:00:00";
-            this.LBLDelay_Content.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // LBLDelay_Tag
-            // 
-            this.LBLDelay_Tag.AutoSize = true;
-            this.LBLDelay_Tag.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.LBLDelay_Tag.Location = new System.Drawing.Point(8, 163);
-            this.LBLDelay_Tag.Name = "LBLDelay_Tag";
-            this.LBLDelay_Tag.Size = new System.Drawing.Size(49, 15);
-            this.LBLDelay_Tag.TabIndex = 6;
-            this.LBLDelay_Tag.Text = "Demora";
             // 
             // TXTDestiny
             // 
@@ -469,7 +443,7 @@ namespace Remiseria
             this.GRPDriver.Controls.Add(this.LBLDriver);
             this.GRPDriver.Enabled = false;
             this.GRPDriver.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.GRPDriver.Location = new System.Drawing.Point(291, 419);
+            this.GRPDriver.Location = new System.Drawing.Point(291, 406);
             this.GRPDriver.Name = "GRPDriver";
             this.GRPDriver.Size = new System.Drawing.Size(383, 100);
             this.GRPDriver.TabIndex = 9;
@@ -480,9 +454,24 @@ namespace Remiseria
             // 
             this.NUDEarn.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.NUDEarn.Location = new System.Drawing.Point(268, 28);
+            this.NUDEarn.Maximum = new decimal(new int[] {
+            300,
+            0,
+            0,
+            0});
+            this.NUDEarn.Minimum = new decimal(new int[] {
+            300,
+            0,
+            0,
+            0});
             this.NUDEarn.Name = "NUDEarn";
             this.NUDEarn.Size = new System.Drawing.Size(95, 22);
             this.NUDEarn.TabIndex = 6;
+            this.NUDEarn.Value = new decimal(new int[] {
+            300,
+            0,
+            0,
+            0});
             // 
             // LBLEarning
             // 
@@ -524,21 +513,11 @@ namespace Remiseria
             this.LBLDriver.TabIndex = 0;
             this.LBLDriver.Text = "Chofer";
             // 
-            // DGVClientes
-            // 
-            this.DGVClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DGVClientes.Location = new System.Drawing.Point(723, 78);
-            this.DGVClientes.Name = "DGVClientes";
-            this.DGVClientes.ReadOnly = true;
-            this.DGVClientes.Size = new System.Drawing.Size(469, 276);
-            this.DGVClientes.TabIndex = 17;
-            // 
             // FRMRecepcion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1195, 570);
-            this.Controls.Add(this.DGVClientes);
+            this.ClientSize = new System.Drawing.Size(733, 528);
             this.Controls.Add(this.GRPDriver);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -564,7 +543,6 @@ namespace Remiseria
             this.GRPDriver.ResumeLayout(false);
             this.GRPDriver.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NUDEarn)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DGVClientes)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -584,8 +562,6 @@ namespace Remiseria
         private System.Windows.Forms.TextBox TXTName;
         private System.Windows.Forms.Label LBLName;
         private System.Windows.Forms.GroupBox GRPTravel;
-        private System.Windows.Forms.Label LBLDelay_Content;
-        private System.Windows.Forms.Label LBLDelay_Tag;
         private System.Windows.Forms.TextBox TXTDestiny;
         private System.Windows.Forms.Label LBLDestiny;
         private System.Windows.Forms.TextBox TXTDeparture;
@@ -612,7 +588,6 @@ namespace Remiseria
         private System.Windows.Forms.ComboBox CMBDrivers;
         private System.Windows.Forms.Button BTNSave;
         private System.Windows.Forms.Label LBLDriver;
-        private System.Windows.Forms.DataGridView DGVClientes;
     }
 }
 

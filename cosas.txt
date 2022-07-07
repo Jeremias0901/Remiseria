@@ -1,0 +1,9 @@
+Que me falta / que no anda
+-----------------------------------------------------
+Que pueda guardar drivers en FRMBoss [1]
+Que pueda sacarse de la lista a un chofer con auto ya asignado. [0]
+Que se pueda poner presentes a los drivers.[1]
+El buscador de clientes por medio el codigo. [1]
+Que carguen los autos en FRMRecepcion. [casi, el ultimo no lo carga]
+Que carguen los autos en FRMCars.[1]
+Infuncional todo FRMDrivers, el formulario displayer.

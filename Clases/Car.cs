@@ -20,7 +20,6 @@ namespace Clases
         public string Patent { get; set; }
         private decimal costFuel;
         [DisplayName("Costo Combustible")]
-
         public decimal CostFuel
         {
             get { return costFuel; }
@@ -33,7 +32,7 @@ namespace Clases
                 else costFuel = 0;
             }
         }
-        public bool Disponible = true;
+        public bool Disponible { get; set; }
 
         private static List<Car> ListCars = new List<Car>();
 

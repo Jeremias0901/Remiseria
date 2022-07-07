@@ -60,7 +60,7 @@ namespace Remiseria
             this.GRPAssignment.Location = new System.Drawing.Point(199, 36);
             this.GRPAssignment.Name = "GRPAssignment";
             this.GRPAssignment.Size = new System.Drawing.Size(183, 119);
-            this.GRPAssignment.TabIndex = 0;
+            this.GRPAssignment.TabIndex = 1;
             this.GRPAssignment.TabStop = false;
             this.GRPAssignment.Text = "Asignacion de Autos";
             // 
@@ -88,7 +88,7 @@ namespace Remiseria
             this.CMBCar.Location = new System.Drawing.Point(47, 51);
             this.CMBCar.Name = "CMBCar";
             this.CMBCar.Size = new System.Drawing.Size(121, 21);
-            this.CMBCar.TabIndex = 12;
+            this.CMBCar.TabIndex = 1;
             // 
             // CMBDriver
             // 
@@ -96,14 +96,14 @@ namespace Remiseria
             this.CMBDriver.Location = new System.Drawing.Point(47, 19);
             this.CMBDriver.Name = "CMBDriver";
             this.CMBDriver.Size = new System.Drawing.Size(121, 21);
-            this.CMBDriver.TabIndex = 11;
+            this.CMBDriver.TabIndex = 0;
             // 
             // BTNAssignment
             // 
             this.BTNAssignment.Location = new System.Drawing.Point(55, 84);
             this.BTNAssignment.Name = "BTNAssignment";
             this.BTNAssignment.Size = new System.Drawing.Size(75, 23);
-            this.BTNAssignment.TabIndex = 10;
+            this.BTNAssignment.TabIndex = 2;
             this.BTNAssignment.Text = "Asignar";
             this.BTNAssignment.UseVisualStyleBackColor = true;
             this.BTNAssignment.Click += new System.EventHandler(this.BTNAssignment_Click);
@@ -122,7 +122,7 @@ namespace Remiseria
             this.GRPAddCar.Location = new System.Drawing.Point(12, 12);
             this.GRPAddCar.Name = "GRPAddCar";
             this.GRPAddCar.Size = new System.Drawing.Size(172, 166);
-            this.GRPAddCar.TabIndex = 1;
+            this.GRPAddCar.TabIndex = 0;
             this.GRPAddCar.TabStop = false;
             this.GRPAddCar.Text = "Agregar Auto";
             // 
@@ -132,7 +132,7 @@ namespace Remiseria
             this.MTXPatent.Mask = "AAA-000";
             this.MTXPatent.Name = "MTXPatent";
             this.MTXPatent.Size = new System.Drawing.Size(100, 20);
-            this.MTXPatent.TabIndex = 9;
+            this.MTXPatent.TabIndex = 3;
             this.MTXPatent.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // BTNAdd
@@ -140,7 +140,7 @@ namespace Remiseria
             this.BTNAdd.Location = new System.Drawing.Point(48, 128);
             this.BTNAdd.Name = "BTNAdd";
             this.BTNAdd.Size = new System.Drawing.Size(75, 23);
-            this.BTNAdd.TabIndex = 8;
+            this.BTNAdd.TabIndex = 4;
             this.BTNAdd.Text = "Agregar";
             this.BTNAdd.UseVisualStyleBackColor = true;
             this.BTNAdd.Click += new System.EventHandler(this.BTNAdd_Click);
@@ -159,7 +159,7 @@ namespace Remiseria
             this.TXTColor.Location = new System.Drawing.Point(63, 76);
             this.TXTColor.Name = "TXTColor";
             this.TXTColor.Size = new System.Drawing.Size(100, 20);
-            this.TXTColor.TabIndex = 5;
+            this.TXTColor.TabIndex = 2;
             // 
             // LBLColor
             // 
@@ -175,7 +175,7 @@ namespace Remiseria
             this.TXTBland.Location = new System.Drawing.Point(63, 50);
             this.TXTBland.Name = "TXTBland";
             this.TXTBland.Size = new System.Drawing.Size(100, 20);
-            this.TXTBland.TabIndex = 3;
+            this.TXTBland.TabIndex = 1;
             // 
             // LBLBland
             // 
@@ -191,7 +191,7 @@ namespace Remiseria
             this.TXTModel.Location = new System.Drawing.Point(63, 24);
             this.TXTModel.Name = "TXTModel";
             this.TXTModel.Size = new System.Drawing.Size(100, 20);
-            this.TXTModel.TabIndex = 1;
+            this.TXTModel.TabIndex = 0;
             // 
             // LBLModel
             // 
@@ -207,7 +207,7 @@ namespace Remiseria
             this.BTNEnd.Location = new System.Drawing.Point(117, 184);
             this.BTNEnd.Name = "BTNEnd";
             this.BTNEnd.Size = new System.Drawing.Size(162, 23);
-            this.BTNEnd.TabIndex = 13;
+            this.BTNEnd.TabIndex = 2;
             this.BTNEnd.Text = "Finalizar y Abrir Recepcion";
             this.BTNEnd.UseVisualStyleBackColor = true;
             this.BTNEnd.Click += new System.EventHandler(this.BTNEnd_Click);

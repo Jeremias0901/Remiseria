@@ -8,8 +8,8 @@ namespace Clases
 {
     public class RemiseriaClass
     {
-        public static DateTime Entrada { get; set; }
-
+        public static DateTime Entrada = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 7, 0, 0);
+        
         private decimal comition;
         public decimal Comition
         {

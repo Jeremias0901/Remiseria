@@ -19,16 +19,11 @@ namespace Clases
             
             Car = new Car();
             Earnings = 0;
-            ListTravels = new List<Travels>();
-
+            
             Salary = 0;
-            IncomeLocal = new DateTime();
-            IncomeLocalDelay = new TimeSpan();
-
-            Absences = new List<DateTime>();
         }
 
-        public Driver(string name_p, string surname_p, Car car_p, int telephono_p, decimal earnings_p, decimal salary_p, DateTime incomeLocal_p, TimeSpan incomeLocalDelay_p, DateTime birthDay_p)
+        public Driver(string name_p, string surname_p, Car car_p, int telephono_p, decimal earnings_p, decimal salary_p, DateTime birthDay_p)
         {
             Name = name_p;
             Surname = surname_p;
@@ -38,11 +33,7 @@ namespace Clases
             Car = car_p;
             Earnings = earnings_p;
 
-            Salary = salary_p; 
-            IncomeLocal = incomeLocal_p;
-            IncomeLocalDelay = incomeLocalDelay_p;
-
-            Absences = new List<DateTime>();
+            Salary = salary_p;
         }
 
         [DisplayName("Auto")]
@@ -50,7 +41,6 @@ namespace Clases
         [DisplayName("Ganancias")]
         public decimal Earnings { get; set; }
 
-        static private List<Travels> ListTravels = new List<Travels>();
         static private List<Driver> ListDrivers = new List<Driver>();
 
         public void Earn(decimal monto)
@@ -74,14 +64,6 @@ namespace Clases
         public static List<Driver> GetListDriver()
         {
             return ListDrivers;
-        }
-        public void Absent()
-        {
-            this.Absences.Add(DateTime.Now);
-        }
-        public void AddTravel(Travels travel_p)
-        {
-            ListTravels.Add(travel_p);
         }
     }
 }

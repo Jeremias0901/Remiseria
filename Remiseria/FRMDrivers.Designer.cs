@@ -31,7 +31,6 @@ namespace Remiseria
         {
             this.label1 = new System.Windows.Forms.Label();
             this.LBLNameSurnameCustomer_Tag = new System.Windows.Forms.Label();
-            this.LBLIsBirthCustomer = new System.Windows.Forms.Label();
             this.LBLDestiny = new System.Windows.Forms.Label();
             this.LBLPlaceDestiny = new System.Windows.Forms.Label();
             this.LBLTravels = new System.Windows.Forms.Label();
@@ -45,7 +44,6 @@ namespace Remiseria
             this.LBLNameSurnameDriver_Content = new System.Windows.Forms.Label();
             this.LBLNameSurnameDriver_Tag = new System.Windows.Forms.Label();
             this.LBLDriver = new System.Windows.Forms.Label();
-            this.LBLIsBirthDriver = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -67,16 +65,6 @@ namespace Remiseria
             this.LBLNameSurnameCustomer_Tag.Size = new System.Drawing.Size(193, 17);
             this.LBLNameSurnameCustomer_Tag.TabIndex = 1;
             this.LBLNameSurnameCustomer_Tag.Text = "Nombre y Apellido del Cliente";
-            // 
-            // LBLIsBirthCustomer
-            // 
-            this.LBLIsBirthCustomer.AutoSize = true;
-            this.LBLIsBirthCustomer.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LBLIsBirthCustomer.Location = new System.Drawing.Point(261, 167);
-            this.LBLIsBirthCustomer.Name = "LBLIsBirthCustomer";
-            this.LBLIsBirthCustomer.Size = new System.Drawing.Size(123, 17);
-            this.LBLIsBirthCustomer.TabIndex = 2;
-            this.LBLIsBirthCustomer.Text = "Es su cumpleaños";
             // 
             // LBLDestiny
             // 
@@ -208,24 +196,13 @@ namespace Remiseria
             this.LBLDriver.TabIndex = 12;
             this.LBLDriver.Text = "Chofer";
             // 
-            // LBLIsBirthDriver
-            // 
-            this.LBLIsBirthDriver.AutoSize = true;
-            this.LBLIsBirthDriver.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LBLIsBirthDriver.Location = new System.Drawing.Point(261, 44);
-            this.LBLIsBirthDriver.Name = "LBLIsBirthDriver";
-            this.LBLIsBirthDriver.Size = new System.Drawing.Size(123, 17);
-            this.LBLIsBirthDriver.TabIndex = 14;
-            this.LBLIsBirthDriver.Text = "Es su cumpleaños";
-            // 
-            // Drivers
+            // FRMDrivers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(394, 420);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.LBLNameSurnameDriver_Content);
-            this.Controls.Add(this.LBLIsBirthDriver);
             this.Controls.Add(this.LBLNameSurnameDriver_Tag);
             this.Controls.Add(this.LBLDriver);
             this.Controls.Add(this.label9);
@@ -237,10 +214,9 @@ namespace Remiseria
             this.Controls.Add(this.LBLDestiny);
             this.Controls.Add(this.LBLPlaceDestiny);
             this.Controls.Add(this.LBLTravels);
-            this.Controls.Add(this.LBLIsBirthCustomer);
             this.Controls.Add(this.LBLNameSurnameCustomer_Tag);
             this.Controls.Add(this.label1);
-            this.Name = "Drivers";
+            this.Name = "FRMDrivers";
             this.Text = "Drivers";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -251,7 +227,6 @@ namespace Remiseria
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label LBLNameSurnameCustomer_Tag;
-        private System.Windows.Forms.Label LBLIsBirthCustomer;
         private System.Windows.Forms.Label LBLDestiny;
         private System.Windows.Forms.Label LBLPlaceDestiny;
         private System.Windows.Forms.Label LBLTravels;
@@ -265,6 +240,5 @@ namespace Remiseria
         private System.Windows.Forms.Label LBLNameSurnameDriver_Content;
         private System.Windows.Forms.Label LBLNameSurnameDriver_Tag;
         private System.Windows.Forms.Label LBLDriver;
-        private System.Windows.Forms.Label LBLIsBirthDriver;
     }
 }

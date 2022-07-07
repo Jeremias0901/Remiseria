@@ -14,9 +14,9 @@ namespace Clases
         public string PlaceDeparture { get; set; }
         [DisplayName("Lugar Destino")]
         public string PlaceDestiny { get; set; }
-        [DisplayName("Tiempo Partida")]
+        [DisplayName("Hora Partida")]
         public DateTime TimeDeparture { get; set; }
-        [DisplayName("Tiempo Destino")]
+        [DisplayName("Hora Destino")]
         public DateTime TimeDestiny { get; set; }
         [DisplayName("Duracion")]
         public DateTime Duration { get; set; }
@@ -24,6 +24,7 @@ namespace Clases
         public DateTime Delay { get; set; }
         [DisplayName("Estado")]
         public bool State { get; set; }
+        [DisplayName("Coche")]
         public Car Car_o { get; set; }
 
         public static List<Travels> ListTravels = new List<Travels>();

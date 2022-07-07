@@ -22,7 +22,6 @@ namespace Remiseria
         private void FRMRecepcion_Load(object sender, EventArgs e)
         {
             CMBDrivers.DataSource = Driver.GetListDriver();
-            DGVClientes.DataSource = Customers.GetListCustomer();
         }
         private void BTNFind_Click(object sender, EventArgs e)
         {
@@ -87,7 +86,7 @@ namespace Remiseria
         {
             if (ValidBlanks_OrderTravel())
             {
-                Car car_p = new Car();
+                Car car_p;
 
                 List<Car> listaFreeCars = new List<Car>();
 
@@ -106,50 +105,68 @@ namespace Remiseria
                 else
                 {
                     car_p = listaFreeCars.Last();
+
+                    Travels travel = new Travels(TXTDeparture.Text, TXTDestiny.Text, DTPDuration.Value, true, car_p);
+                    travel.Save();
+
+                    car_p.OcuparAuto();
+
+                    LoadGDVTravels(Travels.ListTravels);
+
+                    GRPAuthenticate.Enabled = true;
+                    GRPTravel.Enabled = false;
+                    BTNFind.Enabled = true;
+                    MTXCode.Enabled = true;
+                    BTNRegister.Enabled = true;
+
+                    TXTDeparture.Text = "";
+                    TXTDestiny.Text = "";
+                    DTPDuration.Value = new DateTime(2001, 1, 1);
+
+                    VaciarCampos();
+
+                    GRPDriver.Enabled = true;
                 }
-
-                Travels travel = new Travels(TXTDeparture.Text, TXTDestiny.Text, DTPDuration.Value, true, car_p);
-                travel.Save();
-                
-                o_customer.OrderTravel(travel);
-
-                car_p.OcuparAuto();
-
-                DGVTravels.DataSource = null;
-                DGVTravels.DataSource = Travels.ListTravels;
-
-                GRPAuthenticate.Enabled = true;
-                GRPTravel.Enabled = false;
-                BTNFind.Enabled = true;
-                MTXCode.Enabled = true;
-                BTNRegister.Enabled = true;
-
-                TXTDeparture.Text = "";
-                TXTDestiny.Text = "";
-                DTPDuration.Value = new DateTime(2001, 1, 1);
-
-                VaciarCampos();
-
-                GRPDriver.Enabled = true;
             }
+        }
+
+        public void LoadGDVTravels(List<Travels> listaTravel)
+        {
+            DGVTravels.DataSource = null;
+            DGVTravels.DataSource = listaTravel;
         }
 
         private void BTNCancelTravel_Click(object sender, EventArgs e)
         {
-            foreach (DataGridViewRow fila in DGVTravels.SelectedRows)
+            if (DGVTravels.SelectedRows.Count >= 1)
             {
-                Travels t = fila.DataBoundItem as Travels;
-                t.Car_o.OcuparAuto();
-            }
+                foreach (DataGridViewRow fila in DGVTravels.SelectedRows)
+                {
+                    Travels t = fila.DataBoundItem as Travels;
+                    t.Car_o.OcuparAuto();
+                }
 
-            GRPAuthenticate.Enabled = true;
-            GRPCustomer.Enabled = false;
-            GRPTravel.Enabled = false;
+                LoadGDVTravels(Travels.ListTravels);
+
+                GRPAuthenticate.Enabled = true;
+                GRPCustomer.Enabled = false;
+                GRPTravel.Enabled = false;
+            }
+            else
+            {
+                MessageBox.Show("Debe Seleccionar al menos 1 viaje.", "Error");
+            }
         }
 
         private void BTNArrived_Click(object sender, EventArgs e)
         {
+            foreach (DataGridViewRow fila in DGVTravels.SelectedRows)
+            {
+                Travels t = fila.DataBoundItem as Travels;
+                t.Car_o.DesocuparAuto();
+            }
 
+            LoadGDVTravels(Travels.ListTravels);
         }
 
         private void BTNViewCar_Click(object sender, EventArgs e)
@@ -196,9 +213,21 @@ namespace Remiseria
 
         private void BTNSave_Click(object sender, EventArgs e)
         {
-            Driver driver = CMBDrivers.SelectedItem as Driver;
-            
-            driver.Earn(NUDEarn.Value);
+            if (CMBDrivers.SelectedIndex != -1)
+            {
+                Driver driver = CMBDrivers.SelectedItem as Driver;
+
+                driver.Earn(NUDEarn.Value);
+
+                MessageBox.Show("Guardado.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                CMBDrivers.Text = "";
+                NUDEarn.Value = NUDEarn.Minimum;
+            }
+            else
+            {
+                MessageBox.Show("Debe seleccionar un Chofer.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

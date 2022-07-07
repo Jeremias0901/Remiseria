@@ -66,7 +66,7 @@
             this.GRPDrivers.Location = new System.Drawing.Point(12, 7);
             this.GRPDrivers.Name = "GRPDrivers";
             this.GRPDrivers.Size = new System.Drawing.Size(535, 492);
-            this.GRPDrivers.TabIndex = 0;
+            this.GRPDrivers.TabIndex = 1;
             this.GRPDrivers.TabStop = false;
             this.GRPDrivers.Text = "Choferes";
             // 
@@ -87,7 +87,7 @@
             this.BTNFinish.Location = new System.Drawing.Point(409, 460);
             this.BTNFinish.Name = "BTNFinish";
             this.BTNFinish.Size = new System.Drawing.Size(109, 26);
-            this.BTNFinish.TabIndex = 2;
+            this.BTNFinish.TabIndex = 5;
             this.BTNFinish.Text = "&Finalizar";
             this.BTNFinish.UseVisualStyleBackColor = true;
             this.BTNFinish.Click += new System.EventHandler(this.BTNFinish_Click);
@@ -118,7 +118,7 @@
             this.BTNArrived.Location = new System.Drawing.Point(15, 459);
             this.BTNArrived.Name = "BTNArrived";
             this.BTNArrived.Size = new System.Drawing.Size(384, 27);
-            this.BTNArrived.TabIndex = 1;
+            this.BTNArrived.TabIndex = 4;
             this.BTNArrived.Text = "&Llegó";
             this.BTNArrived.UseVisualStyleBackColor = true;
             this.BTNArrived.Click += new System.EventHandler(this.BTNArrived_Click);
@@ -133,7 +133,7 @@
             this.DGVDriversLate.ReadOnly = true;
             this.DGVDriversLate.RowTemplate.Height = 25;
             this.DGVDriversLate.Size = new System.Drawing.Size(503, 171);
-            this.DGVDriversLate.TabIndex = 0;
+            this.DGVDriversLate.TabIndex = 3;
             // 
             // LBLReloj
             // 
@@ -166,7 +166,7 @@
             this.GRPAddDriver.Location = new System.Drawing.Point(562, 56);
             this.GRPAddDriver.Name = "GRPAddDriver";
             this.GRPAddDriver.Size = new System.Drawing.Size(199, 170);
-            this.GRPAddDriver.TabIndex = 4;
+            this.GRPAddDriver.TabIndex = 0;
             this.GRPAddDriver.TabStop = false;
             this.GRPAddDriver.Text = "Agregar Chofer";
             // 
@@ -186,7 +186,7 @@
             0});
             this.NUDTelephone.Name = "NUDTelephone";
             this.NUDTelephone.Size = new System.Drawing.Size(100, 20);
-            this.NUDTelephone.TabIndex = 12;
+            this.NUDTelephone.TabIndex = 3;
             this.NUDTelephone.Value = new decimal(new int[] {
             1000000000,
             0,
@@ -198,7 +198,7 @@
             this.BTNAdd.Location = new System.Drawing.Point(62, 136);
             this.BTNAdd.Name = "BTNAdd";
             this.BTNAdd.Size = new System.Drawing.Size(75, 23);
-            this.BTNAdd.TabIndex = 8;
+            this.BTNAdd.TabIndex = 4;
             this.BTNAdd.Text = "Agregar";
             this.BTNAdd.UseVisualStyleBackColor = true;
             this.BTNAdd.Click += new System.EventHandler(this.BTNAdd_Click);
@@ -218,7 +218,7 @@
             this.TXTSurname.Location = new System.Drawing.Point(89, 48);
             this.TXTSurname.Name = "TXTSurname";
             this.TXTSurname.Size = new System.Drawing.Size(100, 20);
-            this.TXTSurname.TabIndex = 3;
+            this.TXTSurname.TabIndex = 1;
             // 
             // DTPBirthDay
             // 
@@ -230,7 +230,7 @@
             this.DTPBirthDay.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
             this.DTPBirthDay.Name = "DTPBirthDay";
             this.DTPBirthDay.Size = new System.Drawing.Size(100, 20);
-            this.DTPBirthDay.TabIndex = 11;
+            this.DTPBirthDay.TabIndex = 2;
             this.DTPBirthDay.Value = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
             // 
             // LBLBirthDay
@@ -257,7 +257,7 @@
             this.TXTName.Location = new System.Drawing.Point(89, 22);
             this.TXTName.Name = "TXTName";
             this.TXTName.Size = new System.Drawing.Size(100, 20);
-            this.TXTName.TabIndex = 1;
+            this.TXTName.TabIndex = 0;
             // 
             // LBLName
             // 
@@ -277,6 +277,7 @@
             this.Controls.Add(this.LBLReloj);
             this.Controls.Add(this.GRPDrivers);
             this.Name = "FRMBoss";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Jefe";
             this.Load += new System.EventHandler(this.FRMBoos_Load);
             this.GRPDrivers.ResumeLayout(false);

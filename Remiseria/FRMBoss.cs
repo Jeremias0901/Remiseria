@@ -35,7 +35,7 @@ namespace Remiseria
             
             FRMCars frmCars = new FRMCars();
 
-            frmCars.Show();
+            frmCars.ShowDialog();
             this.Hide();
         }
 
@@ -55,7 +55,7 @@ namespace Remiseria
             if(CamposValidos())
             {
                 car = new Car();
-                driver = new Driver(TXTName.Text, TXTSurname.Text, car, Convert.ToInt32(NUDTelephone.Value), 0, 0, new DateTime(), new TimeSpan(), DTPBirthDay.Value);
+                driver = new Driver(TXTName.Text, TXTSurname.Text, car, Convert.ToInt32(NUDTelephone.Value), 0, 0, DTPBirthDay.Value);
 
                 driver.SaveDrivers();
 
@@ -90,7 +90,7 @@ namespace Remiseria
             }
             else
             {
-                List<Driver> listaDriverPresents = DGVDrivers.DataSource as List<Driver>;
+                List<Driver> listaDriverPresents = Driver.GetListDriver();
 
                 foreach (DataGridViewRow fila in DGVDrivers.SelectedRows)
                 {
@@ -112,7 +112,7 @@ namespace Remiseria
             }
             else
             {
-                List<Driver> listaDriverLast = DGVDriversLate.DataSource as List<Driver>; 
+                List<Driver> listaDriverLast = DGVDriversLate.DataSource as List<Driver>;
                 
                 foreach (DataGridViewRow fila in DGVDriversLate.SelectedRows)
                 {
@@ -128,7 +128,7 @@ namespace Remiseria
         }
         private void BTNContinue_Click(object sender, EventArgs e)
         {
-            if (Driver.GetListDriver() != null)
+            if ( Driver.GetListDriver().Count >= 1 )
             {
                 GRPAddDriver.Enabled = false;
                 BTNPresentDrivers.Enabled = false;
@@ -152,7 +152,7 @@ namespace Remiseria
 
             foreach (Driver d in Driver.GetListDriver())
             {
-                if(d.IncomeLocal.Equals(new DateTime()))
+                if(d.IncomeLocal.Count == 0)
                 {
                     lista_result.Add(d);
                 }

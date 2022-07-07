@@ -22,17 +22,18 @@ namespace Remiseria
         private void FRMCars_Load(object sender, EventArgs e)
         {
             SubirDriverCMB();
-            SubirCarCMB();
+            SubirCarCMB(Car.GetListCar());
         }
 
         private void BTNAssignment_Click(object sender, EventArgs e)
         {
             if (CMBDriver.SelectedIndex >= 0 && CMBCar.SelectedIndex >= 0)
             {
-                // Obtener un objeto desde un ComboBox
                 Driver driver = CMBDriver.SelectedItem as Driver;
 
                 driver.AsignarAuto(CMBCar.SelectedItem as Car);
+                // SacarCMBCar(CMBCar.SelectedItem as Car);
+                // SacarCMBDriver(CMBDriver.SelectedItem as Driver);
 
                 CMBCar.Text = "";
                 CMBDriver.Text = "";
@@ -43,26 +44,50 @@ namespace Remiseria
             {
                 MessageBox.Show("Complete correctamente todos los campos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        /*
+        public void SacarCMBCar(Car car_p)
+        {
+            List<Car> lista = new List<Car>();
+            lista = CMBCar.DataSource as List<Car>;
+            lista.Remove(car_p);
+            CMBCar.DataSource = lista;
             
         }
 
+        public void SacarCMBDriver(Driver driver_p)
+        {
+            List<Driver> lista = new List<Driver>();
+            lista = CMBDriver.DataSource as List<Driver>;
+            lista.Remove(driver_p);
+            CMBDriver.DataSource = lista;
+        }
+        */
         public void SubirDriverCMB()
         {
             // Cargar solo los choferes que llegaron
-            foreach (Driver d in Driver.GetListDriver())
+            // CMBDriver.DataSource = Driver.GetListDriver();
+
+            if (Driver.GetListDriver().Count >= 1)
             {
-                if (d.IncomeLocal != new DateTime())
+                foreach (Driver d in Driver.GetListDriver())
                 {
-                    CMBDriver.Items.Add(d);
+                    if ( d.IncomeLocal.Count >= 1 )
+                    {
+                        CMBDriver.Items.Add(d);
+                    }
                 }
             }
-        }
-        public void SubirCarCMB()
-        {
-            foreach (Car c in Car.GetListCar())
+            else
             {
-                CMBCar.Items.Add(c);
+                MessageBox.Show("Lista de conductores vacia.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+        public void SubirCarCMB(List<Car> listaCar)
+        {
+            CMBCar.DataSource = null;
+            CMBCar.DataSource = listaCar;
         }
 
         private void BTNAdd_Click(object sender, EventArgs e)
@@ -73,7 +98,7 @@ namespace Remiseria
 
                 car.SaveCar();
 
-                SubirCarCMB();
+                SubirCarCMB(Car.GetListCar());
 
                 VaciarCampos();
             }
