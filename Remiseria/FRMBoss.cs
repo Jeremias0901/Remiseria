@@ -28,7 +28,7 @@ namespace Remiseria
 
         private void BTNFinish_Click(object sender, EventArgs e)
         {
-            foreach (Driver driver in GetAusentes())
+            foreach (Driver driver in Driver.GetAusentesDrivers())
             {
                 driver.Absent();
             }
@@ -134,7 +134,7 @@ namespace Remiseria
                 BTNPresentDrivers.Enabled = false;
                 BTNContinue.Enabled = false;
 
-                DGVDriversLate.DataSource = GetAusentes();
+                DGVDriversLate.DataSource = Driver.GetAusentesDrivers();
 
                 DGVDriversLate.Enabled = true;
                 BTNArrived.Enabled = true;
@@ -144,21 +144,6 @@ namespace Remiseria
             {
                 MessageBox.Show("Lista de Choferes vacia. Agregue a un chofer", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
-
-        public List<Driver> GetAusentes()
-        {
-            List<Driver> lista_result = new List<Driver>();
-
-            foreach (Driver d in Driver.GetListDriver())
-            {
-                if(d.IncomeLocal.Count == 0)
-                {
-                    lista_result.Add(d);
-                }
-            }
-
-            return lista_result;
         }
     }
 }

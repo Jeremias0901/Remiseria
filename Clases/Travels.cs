@@ -11,58 +11,79 @@ namespace Clases
     public class Travels
     {
         [DisplayName("Lugar Partida")]
-        public string PlaceDeparture { get; set; }
+        private string PlaceDeparture { get; set; }
         [DisplayName("Lugar Destino")]
-        public string PlaceDestiny { get; set; }
+        private string PlaceDestiny { get; set; }
         [DisplayName("Hora Partida")]
-        public DateTime TimeDeparture { get; set; }
+        private DateTime TimeDeparture { get; set; }
         [DisplayName("Hora Destino")]
-        public DateTime TimeDestiny { get; set; }
+        private DateTime TimeDestiny { get; set; }
         [DisplayName("Duracion")]
-        public DateTime Duration { get; set; }
+        private TimeSpan Duration { get; set; }
         [DisplayName("Demora")]
-        public DateTime Delay { get; set; }
+        private TimeSpan Delay { get; set; }
         [DisplayName("Estado")]
-        public bool State { get; set; }
+        private bool State { get; set; }
         [DisplayName("Coche")]
-        public Car Car_o { get; set; }
+        private Car Car_o { get; set; }
 
-        public static List<Travels> ListTravels = new List<Travels>();
+        static public List<Travels> ListTravels = new List<Travels>();
 
-        public Travels(string placeDeparture_p, string placeDestiny_p, DateTime duration_p, bool state_p, Car car_p)
+        public Travels(string placeDeparture_p, string placeDestiny_p, TimeSpan duration_p, bool state_p, Car car_p)
         {
             PlaceDeparture = placeDeparture_p;
             PlaceDestiny = placeDestiny_p;
             Duration = duration_p;
             State = state_p;
             Car_o = car_p;
-
-            TimeDeparture = DateTime.Now;
         }
         public Travels()
         {
             PlaceDeparture = "n/n";
             PlaceDestiny = "n/n";
-            Duration = new DateTime();
+            Duration = new TimeSpan();
             State = false;
             Car_o = new Car();
 
             TimeDeparture = DateTime.Now;
         }
-
+        public void BeginTravel()
+        {
+            TimeDeparture = DateTime.Now;
+        }
         public void Save()
         {
             ListTravels.Add(this);
         }
-        
-        public void SetTimeDestiny()
+        public void FinishTravel()
         {
             TimeDestiny = DateTime.Now;
         }
-
         public void AddCar(Car car_p)
         {
             Car_o = car_p;
+        }
+        public override string ToString()
+        {
+            return string.Format("Lugar de Partida: {0} Lugar de Destino: {1} Hora de Partida: {2:t} Hora de Llegada: {3:t}", PlaceDeparture, PlaceDestiny, TimeDeparture, TimeDestiny);
+        }
+        public void CalculateDelay()
+        {
+            Delay = ViajeMenorDuracion() + ViajeMenorDuracion();
+        }
+        public TimeSpan ViajeMenorDuracion()
+        {
+            Travels ViajeMenor = ListTravels[0];
+
+            for(int i = 1; i < ListTravels.Count; i++)
+            {
+                if(ViajeMenor.Delay < ListTravels[i].Delay)
+                {
+                    ViajeMenor = ListTravels[i];
+                }
+            }
+
+            return ViajeMenor.Delay;
         }
     }
 }

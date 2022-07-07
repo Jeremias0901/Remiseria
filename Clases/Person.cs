@@ -10,27 +10,17 @@ namespace Clases
     public abstract class Person
     {
         [DisplayName("Nombre")]
-        public string Name {get; set;}
+        protected string Name { get; set; }
         [DisplayName("Apellido")]
-        public string Surname { get; set; }
+        protected string Surname { get; set; }
         [DisplayName("Fecha de Nacimiento")]
-        public DateTime BirthDay { get; set; }
+        protected DateTime BirthDay { get; set; }
         private int telephono;
         [DisplayName("Telefono")]
-        public int Telephono
+        protected int Telephono
         {
-            get
-            {
-                return telephono;
-            }
-            set
-            {
-                if (value >= 1000000000)
-                {
-                    telephono = value;
-                }
-                else telephono = 0;
-            }
+            get { return telephono; }
+            set { telephono = (value >= 1000000000) ? value : 0; }
         }
 
         public Person(string name_p, string surname_p, DateTime birthDay_p, int telephono_p)
@@ -47,10 +37,13 @@ namespace Clases
             BirthDay = new DateTime();
             Telephono = 0;
         }
-
         public bool BirthToday()
         {
             return DateTime.Equals(BirthDay, DateTime.Now);
+        }
+        public override string ToString()
+        {
+            return string.Format("Nombre: {0} - Apellido: {1} - Telefono: {2}", Name, Surname, Telephono);
         }
     }
 }

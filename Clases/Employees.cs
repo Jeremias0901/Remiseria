@@ -3,21 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
 using System.ComponentModel;
 
 namespace Clases
 {
     public abstract class Employees : Person
     {
-        private decimal salary;
+        protected decimal salary;
         [DisplayName("Salario")]
-        public decimal Salary
+        protected decimal Salary
         {
-            get
-            {
-                return salary;
-            }
+            get { return salary; }
             set
             {
                 if (value > 0)
@@ -28,41 +24,54 @@ namespace Clases
             }
         }
         
-        public List<DateTime> IncomeLocal = new List<DateTime>();
-        public List<TimeSpan> IncomeLocalDelay = new List<TimeSpan>();
-        public List<DateTime> Absences = new List<DateTime>();
+        protected List<DateTime> incomeLocal = new List<DateTime>();
+        protected List<TimeSpan> incomeLocalDelay = new List<TimeSpan>();
+        protected List<DateTime> absences = new List<DateTime>();
 
         public Employees()
         {
-            Salary = 0;
-        }
+            this.Salary = 0;
 
+            // Person
+            Name = "";
+            Surname = "";
+            BirthDay = new DateTime();
+            Telephono = 0;
+        }
         public Employees(string name_p, string surname_p, DateTime birthDay_p, int telephono_p, decimal salary_p)
         {
-            Salary = salary_p;
+            this.Salary = salary_p;
             
+            // Persona
             Name = name_p;
             Surname = surname_p;
             BirthDay = birthDay_p;
             Telephono = telephono_p;
         }
-
         public void Arrived()
         {
-            IncomeLocal.Add(DateTime.Now);
+            incomeLocal.Add(DateTime.Now);
         }
         public void Absent()
         {
-            Absences.Add(DateTime.Now);
+            absences.Add(DateTime.Now);
         }
         public void CalculateDelay()
         {
-            IncomeLocalDelay.Add(RemiseriaClass.Entrada - DateTime.Now);
+            incomeLocalDelay.Add(RemiseriaClass.Entrada - DateTime.Now);
         }
-
-        public virtual decimal ReceivesRemuneration()
+        public virtual void SetSalary(decimal salary_p)
+        {
+            // salario = sueldoNeto;
+            Salary = salary_p;
+        }
+        public decimal GetSalary()
         {
             return Salary;
+        }
+        public override string ToString()
+        {
+            return base.ToString() + string.Format("LLegada: {0} Tardia: {1} Ausencias: {2}", incomeLocal, incomeLocalDelay, absences);
         }
     }
 }
