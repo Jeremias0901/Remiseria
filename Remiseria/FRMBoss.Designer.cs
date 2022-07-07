@@ -48,8 +48,6 @@
             this.LBLSurname = new System.Windows.Forms.Label();
             this.TXTName = new System.Windows.Forms.TextBox();
             this.LBLName = new System.Windows.Forms.Label();
-            this.LBLSchedule = new System.Windows.Forms.Label();
-            this.DTPSchedule = new System.Windows.Forms.DateTimePicker();
             this.GRPDrivers.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGVDrivers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGVDriversLate)).BeginInit();
@@ -65,9 +63,9 @@
             this.GRPDrivers.Controls.Add(this.BTNPresentDrivers);
             this.GRPDrivers.Controls.Add(this.BTNArrived);
             this.GRPDrivers.Controls.Add(this.DGVDriversLate);
-            this.GRPDrivers.Location = new System.Drawing.Point(12, 37);
+            this.GRPDrivers.Location = new System.Drawing.Point(12, 7);
             this.GRPDrivers.Name = "GRPDrivers";
-            this.GRPDrivers.Size = new System.Drawing.Size(535, 462);
+            this.GRPDrivers.Size = new System.Drawing.Size(535, 492);
             this.GRPDrivers.TabIndex = 0;
             this.GRPDrivers.TabStop = false;
             this.GRPDrivers.Text = "Choferes";
@@ -80,12 +78,13 @@
             this.DGVDrivers.Name = "DGVDrivers";
             this.DGVDrivers.ReadOnly = true;
             this.DGVDrivers.RowTemplate.ReadOnly = true;
-            this.DGVDrivers.Size = new System.Drawing.Size(503, 184);
+            this.DGVDrivers.Size = new System.Drawing.Size(503, 213);
             this.DGVDrivers.TabIndex = 0;
             // 
             // BTNFinish
             // 
-            this.BTNFinish.Location = new System.Drawing.Point(409, 423);
+            this.BTNFinish.Enabled = false;
+            this.BTNFinish.Location = new System.Drawing.Point(409, 460);
             this.BTNFinish.Name = "BTNFinish";
             this.BTNFinish.Size = new System.Drawing.Size(109, 26);
             this.BTNFinish.TabIndex = 2;
@@ -95,9 +94,9 @@
             // 
             // BTNContinue
             // 
-            this.BTNContinue.Location = new System.Drawing.Point(409, 251);
+            this.BTNContinue.Location = new System.Drawing.Point(409, 248);
             this.BTNContinue.Name = "BTNContinue";
-            this.BTNContinue.Size = new System.Drawing.Size(109, 26);
+            this.BTNContinue.Size = new System.Drawing.Size(109, 28);
             this.BTNContinue.TabIndex = 2;
             this.BTNContinue.Text = "&Continuar";
             this.BTNContinue.UseVisualStyleBackColor = true;
@@ -105,9 +104,9 @@
             // 
             // BTNPresentDrivers
             // 
-            this.BTNPresentDrivers.Location = new System.Drawing.Point(15, 219);
+            this.BTNPresentDrivers.Location = new System.Drawing.Point(15, 248);
             this.BTNPresentDrivers.Name = "BTNPresentDrivers";
-            this.BTNPresentDrivers.Size = new System.Drawing.Size(503, 28);
+            this.BTNPresentDrivers.Size = new System.Drawing.Size(384, 28);
             this.BTNPresentDrivers.TabIndex = 1;
             this.BTNPresentDrivers.Text = "&Presente";
             this.BTNPresentDrivers.UseVisualStyleBackColor = true;
@@ -116,9 +115,9 @@
             // BTNArrived
             // 
             this.BTNArrived.Enabled = false;
-            this.BTNArrived.Location = new System.Drawing.Point(15, 390);
+            this.BTNArrived.Location = new System.Drawing.Point(15, 459);
             this.BTNArrived.Name = "BTNArrived";
-            this.BTNArrived.Size = new System.Drawing.Size(503, 27);
+            this.BTNArrived.Size = new System.Drawing.Size(384, 27);
             this.BTNArrived.TabIndex = 1;
             this.BTNArrived.Text = "&Llegó";
             this.BTNArrived.UseVisualStyleBackColor = true;
@@ -126,13 +125,14 @@
             // 
             // DGVDriversLate
             // 
+            this.DGVDriversLate.AllowDrop = true;
             this.DGVDriversLate.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGVDriversLate.Enabled = false;
-            this.DGVDriversLate.Location = new System.Drawing.Point(15, 283);
+            this.DGVDriversLate.Location = new System.Drawing.Point(15, 282);
             this.DGVDriversLate.Name = "DGVDriversLate";
             this.DGVDriversLate.ReadOnly = true;
             this.DGVDriversLate.RowTemplate.Height = 25;
-            this.DGVDriversLate.Size = new System.Drawing.Size(503, 101);
+            this.DGVDriversLate.Size = new System.Drawing.Size(503, 171);
             this.DGVDriversLate.TabIndex = 0;
             // 
             // LBLReloj
@@ -140,7 +140,7 @@
             this.LBLReloj.AutoSize = true;
             this.LBLReloj.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.LBLReloj.Font = new System.Drawing.Font("Segoe UI", 13F);
-            this.LBLReloj.Location = new System.Drawing.Point(283, 7);
+            this.LBLReloj.Location = new System.Drawing.Point(567, 15);
             this.LBLReloj.Name = "LBLReloj";
             this.LBLReloj.Size = new System.Drawing.Size(191, 27);
             this.LBLReloj.TabIndex = 3;
@@ -163,7 +163,7 @@
             this.GRPAddDriver.Controls.Add(this.LBLSurname);
             this.GRPAddDriver.Controls.Add(this.TXTName);
             this.GRPAddDriver.Controls.Add(this.LBLName);
-            this.GRPAddDriver.Location = new System.Drawing.Point(563, 220);
+            this.GRPAddDriver.Location = new System.Drawing.Point(562, 56);
             this.GRPAddDriver.Name = "GRPAddDriver";
             this.GRPAddDriver.Size = new System.Drawing.Size(199, 170);
             this.GRPAddDriver.TabIndex = 4;
@@ -268,31 +268,11 @@
             this.LBLName.TabIndex = 0;
             this.LBLName.Text = "Nombre";
             // 
-            // LBLSchedule
-            // 
-            this.LBLSchedule.AutoSize = true;
-            this.LBLSchedule.Location = new System.Drawing.Point(572, 426);
-            this.LBLSchedule.Name = "LBLSchedule";
-            this.LBLSchedule.Size = new System.Drawing.Size(94, 13);
-            this.LBLSchedule.TabIndex = 15;
-            this.LBLSchedule.Text = "Horario de Ingreso";
-            // 
-            // DTPSchedule
-            // 
-            this.DTPSchedule.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.DTPSchedule.Location = new System.Drawing.Point(672, 423);
-            this.DTPSchedule.Name = "DTPSchedule";
-            this.DTPSchedule.Size = new System.Drawing.Size(70, 20);
-            this.DTPSchedule.TabIndex = 15;
-            this.DTPSchedule.Value = new System.DateTime(2022, 6, 22, 7, 0, 0, 0);
-            // 
             // FRMBoss
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(776, 511);
-            this.Controls.Add(this.DTPSchedule);
-            this.Controls.Add(this.LBLSchedule);
             this.Controls.Add(this.GRPAddDriver);
             this.Controls.Add(this.LBLReloj);
             this.Controls.Add(this.GRPDrivers);
@@ -330,8 +310,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DateTimePicker DTPBirthDay;
         private System.Windows.Forms.Label LBLBirthDay;
-        private System.Windows.Forms.Label LBLSchedule;
-        private System.Windows.Forms.DateTimePicker DTPSchedule;
         private System.Windows.Forms.DataGridView DGVDrivers;
     }
 }

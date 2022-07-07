@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -27,20 +27,34 @@ namespace Remiseria
 
         private void BTNAssignment_Click(object sender, EventArgs e)
         {
-            // Obtener un objeto desde un ComboBox
-            Driver driver = CMBDriver.SelectedItem as Driver;
+            if (CMBDriver.SelectedIndex >= 0 && CMBCar.SelectedIndex >= 0)
+            {
+                // Obtener un objeto desde un ComboBox
+                Driver driver = CMBDriver.SelectedItem as Driver;
 
-            driver.AsignarAuto(CMBCar.SelectedItem as Car);
+                driver.AsignarAuto(CMBCar.SelectedItem as Car);
 
-            CMBCar.Text = "";
-            CMBDriver.Text = "";
+                CMBCar.Text = "";
+                CMBDriver.Text = "";
+
+                MessageBox.Show("Chofer asignado.", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Complete correctamente todos los campos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
         }
 
         public void SubirDriverCMB()
         {
+            // Cargar solo los choferes que llegaron
             foreach (Driver d in Driver.GetListDriver())
             {
-                CMBDriver.Items.Add(d);
+                if (d.IncomeLocal != new DateTime())
+                {
+                    CMBDriver.Items.Add(d);
+                }
             }
         }
         public void SubirCarCMB()
@@ -53,13 +67,20 @@ namespace Remiseria
 
         private void BTNAdd_Click(object sender, EventArgs e)
         {
-            Car car = new Car(MTXPatent.Text, TXTBland.Text, TXTModel.Text, TXTColor.Text, 0);
+            if (TXTBland.Text != "" && TXTColor.Text != "" && TXTModel.Text != "")
+            {
+                Car car = new Car(MTXPatent.Text, TXTBland.Text, TXTModel.Text, TXTColor.Text, 0);
 
-            car.SaveCar();
+                car.SaveCar();
 
-            SubirCarCMB();
+                SubirCarCMB();
 
-            VaciarCampos();
+                VaciarCampos();
+            }
+            else
+            {
+                MessageBox.Show("Complete correctamente todos los campos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         public void VaciarCampos()

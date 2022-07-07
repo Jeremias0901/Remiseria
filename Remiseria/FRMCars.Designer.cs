@@ -1,4 +1,4 @@
-﻿
+
 namespace Remiseria
 {
     partial class FRMCars
@@ -57,9 +57,9 @@ namespace Remiseria
             this.GRPAssignment.Controls.Add(this.CMBCar);
             this.GRPAssignment.Controls.Add(this.CMBDriver);
             this.GRPAssignment.Controls.Add(this.BTNAssignment);
-            this.GRPAssignment.Location = new System.Drawing.Point(12, 12);
+            this.GRPAssignment.Location = new System.Drawing.Point(199, 36);
             this.GRPAssignment.Name = "GRPAssignment";
-            this.GRPAssignment.Size = new System.Drawing.Size(344, 119);
+            this.GRPAssignment.Size = new System.Drawing.Size(183, 119);
             this.GRPAssignment.TabIndex = 0;
             this.GRPAssignment.TabStop = false;
             this.GRPAssignment.Text = "Asignacion de Autos";
@@ -67,7 +67,7 @@ namespace Remiseria
             // LBLCar
             // 
             this.LBLCar.AutoSize = true;
-            this.LBLCar.Location = new System.Drawing.Point(250, 31);
+            this.LBLCar.Location = new System.Drawing.Point(12, 54);
             this.LBLCar.Name = "LBLCar";
             this.LBLCar.Size = new System.Drawing.Size(29, 13);
             this.LBLCar.TabIndex = 11;
@@ -76,7 +76,7 @@ namespace Remiseria
             // LBLDriver
             // 
             this.LBLDriver.AutoSize = true;
-            this.LBLDriver.Location = new System.Drawing.Point(51, 31);
+            this.LBLDriver.Location = new System.Drawing.Point(9, 22);
             this.LBLDriver.Name = "LBLDriver";
             this.LBLDriver.Size = new System.Drawing.Size(38, 13);
             this.LBLDriver.TabIndex = 10;
@@ -85,7 +85,7 @@ namespace Remiseria
             // CMBCar
             // 
             this.CMBCar.FormattingEnabled = true;
-            this.CMBCar.Location = new System.Drawing.Point(205, 52);
+            this.CMBCar.Location = new System.Drawing.Point(47, 51);
             this.CMBCar.Name = "CMBCar";
             this.CMBCar.Size = new System.Drawing.Size(121, 21);
             this.CMBCar.TabIndex = 12;
@@ -93,14 +93,14 @@ namespace Remiseria
             // CMBDriver
             // 
             this.CMBDriver.FormattingEnabled = true;
-            this.CMBDriver.Location = new System.Drawing.Point(20, 52);
+            this.CMBDriver.Location = new System.Drawing.Point(47, 19);
             this.CMBDriver.Name = "CMBDriver";
             this.CMBDriver.Size = new System.Drawing.Size(121, 21);
             this.CMBDriver.TabIndex = 11;
             // 
             // BTNAssignment
             // 
-            this.BTNAssignment.Location = new System.Drawing.Point(135, 84);
+            this.BTNAssignment.Location = new System.Drawing.Point(55, 84);
             this.BTNAssignment.Name = "BTNAssignment";
             this.BTNAssignment.Size = new System.Drawing.Size(75, 23);
             this.BTNAssignment.TabIndex = 10;
@@ -119,16 +119,16 @@ namespace Remiseria
             this.GRPAddCar.Controls.Add(this.LBLBland);
             this.GRPAddCar.Controls.Add(this.TXTModel);
             this.GRPAddCar.Controls.Add(this.LBLModel);
-            this.GRPAddCar.Location = new System.Drawing.Point(12, 137);
+            this.GRPAddCar.Location = new System.Drawing.Point(12, 12);
             this.GRPAddCar.Name = "GRPAddCar";
-            this.GRPAddCar.Size = new System.Drawing.Size(344, 115);
+            this.GRPAddCar.Size = new System.Drawing.Size(172, 166);
             this.GRPAddCar.TabIndex = 1;
             this.GRPAddCar.TabStop = false;
             this.GRPAddCar.Text = "Agregar Auto";
             // 
             // MTXPatent
             // 
-            this.MTXPatent.Location = new System.Drawing.Point(226, 50);
+            this.MTXPatent.Location = new System.Drawing.Point(63, 102);
             this.MTXPatent.Mask = "AAA-000";
             this.MTXPatent.Name = "MTXPatent";
             this.MTXPatent.Size = new System.Drawing.Size(100, 20);
@@ -137,7 +137,7 @@ namespace Remiseria
             // 
             // BTNAdd
             // 
-            this.BTNAdd.Location = new System.Drawing.Point(135, 80);
+            this.BTNAdd.Location = new System.Drawing.Point(48, 128);
             this.BTNAdd.Name = "BTNAdd";
             this.BTNAdd.Size = new System.Drawing.Size(75, 23);
             this.BTNAdd.TabIndex = 8;
@@ -148,7 +148,7 @@ namespace Remiseria
             // LBLPatent
             // 
             this.LBLPatent.AutoSize = true;
-            this.LBLPatent.Location = new System.Drawing.Point(176, 53);
+            this.LBLPatent.Location = new System.Drawing.Point(13, 105);
             this.LBLPatent.Name = "LBLPatent";
             this.LBLPatent.Size = new System.Drawing.Size(44, 13);
             this.LBLPatent.TabIndex = 6;
@@ -156,7 +156,7 @@ namespace Remiseria
             // 
             // TXTColor
             // 
-            this.TXTColor.Location = new System.Drawing.Point(226, 24);
+            this.TXTColor.Location = new System.Drawing.Point(63, 76);
             this.TXTColor.Name = "TXTColor";
             this.TXTColor.Size = new System.Drawing.Size(100, 20);
             this.TXTColor.TabIndex = 5;
@@ -164,7 +164,7 @@ namespace Remiseria
             // LBLColor
             // 
             this.LBLColor.AutoSize = true;
-            this.LBLColor.Location = new System.Drawing.Point(189, 27);
+            this.LBLColor.Location = new System.Drawing.Point(26, 79);
             this.LBLColor.Name = "LBLColor";
             this.LBLColor.Size = new System.Drawing.Size(31, 13);
             this.LBLColor.TabIndex = 4;
@@ -204,7 +204,7 @@ namespace Remiseria
             // 
             // BTNEnd
             // 
-            this.BTNEnd.Location = new System.Drawing.Point(100, 263);
+            this.BTNEnd.Location = new System.Drawing.Point(117, 184);
             this.BTNEnd.Name = "BTNEnd";
             this.BTNEnd.Size = new System.Drawing.Size(162, 23);
             this.BTNEnd.TabIndex = 13;
@@ -216,7 +216,7 @@ namespace Remiseria
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(374, 298);
+            this.ClientSize = new System.Drawing.Size(392, 217);
             this.Controls.Add(this.BTNEnd);
             this.Controls.Add(this.GRPAddCar);
             this.Controls.Add(this.GRPAssignment);

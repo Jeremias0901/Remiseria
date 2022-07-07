@@ -23,18 +23,12 @@ namespace Clases
 
             Salary = 0;
             IncomeLocal = new DateTime();
-            IncomeLocalDelay = new DateTime();
+            IncomeLocalDelay = new TimeSpan();
+
             Absences = new List<DateTime>();
         }
 
-        /*
-            public void AddAbsences(Driver driver)
-            {
-                driver.Absences.Add(DateTime.Now);
-            }
-         */
-
-        public Driver(string name_p, string surname_p, Car car_p, int telephono_p, decimal earnings_p, decimal salary_p, DateTime incomeLocal_p, DateTime incomeLocalDelay_p, DateTime absences_p, DateTime birthDay_p)
+        public Driver(string name_p, string surname_p, Car car_p, int telephono_p, decimal earnings_p, decimal salary_p, DateTime incomeLocal_p, TimeSpan incomeLocalDelay_p, DateTime birthDay_p)
         {
             Name = name_p;
             Surname = surname_p;
@@ -42,14 +36,13 @@ namespace Clases
             Telephono = telephono_p;
 
             Car = car_p;
-            Salary = salary_p; 
             Earnings = earnings_p;
 
+            Salary = salary_p; 
             IncomeLocal = incomeLocal_p;
             IncomeLocalDelay = incomeLocalDelay_p;
 
             Absences = new List<DateTime>();
-            Absences.Add(absences_p);
         }
 
         [DisplayName("Auto")]
@@ -57,7 +50,7 @@ namespace Clases
         [DisplayName("Ganancias")]
         public decimal Earnings { get; set; }
 
-        static private List<Travels> ListTravels;
+        static private List<Travels> ListTravels = new List<Travels>();
         static private List<Driver> ListDrivers = new List<Driver>();
 
         public void Earn(decimal monto)
@@ -81,6 +74,14 @@ namespace Clases
         public static List<Driver> GetListDriver()
         {
             return ListDrivers;
+        }
+        public void Absent()
+        {
+            this.Absences.Add(DateTime.Now);
+        }
+        public void AddTravel(Travels travel_p)
+        {
+            ListTravels.Add(travel_p);
         }
     }
 }

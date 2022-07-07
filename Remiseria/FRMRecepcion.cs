@@ -21,10 +21,12 @@ namespace Remiseria
         }
         private void FRMRecepcion_Load(object sender, EventArgs e)
         {
+            CMBDrivers.DataSource = Driver.GetListDriver();
+            DGVClientes.DataSource = Customers.GetListCustomer();
         }
         private void BTNFind_Click(object sender, EventArgs e)
         {
-            if ( ValidBlanks_Authenticate() )
+            if( ValidBlanks_Authenticate() )
             {
                 o_customer = Customers.FindCustomer(Convert.ToInt32(MTXCode.Text));
 
@@ -85,12 +87,36 @@ namespace Remiseria
         {
             if (ValidBlanks_OrderTravel())
             {
-                Travels travel = new Travels(TXTDeparture.Text, TXTDestiny.Text, DTPDuration.Value, true);
+                Car car_p = new Car();
 
+                List<Car> listaFreeCars = new List<Car>();
+
+                foreach (Car c in Car.GetListCar())
+                {
+                    if (c.Disponible)
+                    {
+                        listaFreeCars.Add(c);
+                    }
+                }
+
+                if (listaFreeCars.Count <= 1)
+                {
+                    MessageBox.Show("No hay autos libres", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    car_p = listaFreeCars.Last();
+                }
+
+                Travels travel = new Travels(TXTDeparture.Text, TXTDestiny.Text, DTPDuration.Value, true, car_p);
+                travel.Save();
+                
                 o_customer.OrderTravel(travel);
 
+                car_p.OcuparAuto();
+
                 DGVTravels.DataSource = null;
-                DGVTravels.DataSource = Customers.GetListCustomer();
+                DGVTravels.DataSource = Travels.ListTravels;
 
                 GRPAuthenticate.Enabled = true;
                 GRPTravel.Enabled = false;
@@ -103,21 +129,22 @@ namespace Remiseria
                 DTPDuration.Value = new DateTime(2001, 1, 1);
 
                 VaciarCampos();
+
+                GRPDriver.Enabled = true;
             }
         }
 
         private void BTNCancelTravel_Click(object sender, EventArgs e)
         {
-            if (ValidBlanks_OrderTravel())
+            foreach (DataGridViewRow fila in DGVTravels.SelectedRows)
             {
-                Travels travel = new Travels(TXTDeparture.Text, TXTDestiny.Text, new DateTime(2000, 1, 1), false);
-
-                o_customer.SaveTravel(travel);
-
-                GRPAuthenticate.Enabled = true;
-                GRPCustomer.Enabled = false;
-                GRPTravel.Enabled = false;
+                Travels t = fila.DataBoundItem as Travels;
+                t.Car_o.OcuparAuto();
             }
+
+            GRPAuthenticate.Enabled = true;
+            GRPCustomer.Enabled = false;
+            GRPTravel.Enabled = false;
         }
 
         private void BTNArrived_Click(object sender, EventArgs e)
@@ -127,7 +154,13 @@ namespace Remiseria
 
         private void BTNViewCar_Click(object sender, EventArgs e)
         {
-            
+            Travels travel;
+
+            foreach (DataGridViewRow fila in DGVTravels.SelectedRows)
+            {
+                travel = fila.DataBoundItem as Travels;
+                MessageBox.Show(travel.Car_o.ToString(), "Auto", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
         public void VaciarCampos()
         {
@@ -150,7 +183,7 @@ namespace Remiseria
         }
         public bool ValidBlanks_OrderTravel()
         {
-            return ((TXTDestiny.Text != "") && (TXTDeparture.Text != "") && (DTPDuration.Text != ""));
+            return ((TXTDestiny.Text != "") && (TXTDeparture.Text != "") && (DTPDuration.Value != new DateTime()));
         }
         public bool ValidBlanks_CancelTravel()
         {
@@ -158,7 +191,7 @@ namespace Remiseria
         }
         public bool ValidBlanks_Authenticate()
         {
-            return ((MTXCode.Text.Length == 6) && (MTXCode.Text != ""));
+            return (MTXCode.Text != "");
         }
 
         private void BTNSave_Click(object sender, EventArgs e)

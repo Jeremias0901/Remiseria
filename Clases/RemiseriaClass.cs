@@ -8,6 +8,8 @@ namespace Clases
 {
     public class RemiseriaClass
     {
+        public static DateTime Entrada { get; set; }
+
         private decimal comition;
         public decimal Comition
         {
@@ -17,6 +19,11 @@ namespace Clases
                 if ((value > 0) && (value <= 100)) comition = value;
                 else comition = 0;
             }
+        }
+
+        public void CambiarHorarioEntrada(DateTime horario)
+        {
+            Entrada = horario;
         }
     }
 }

@@ -20,6 +20,7 @@ namespace Clases
         public string Patent { get; set; }
         private decimal costFuel;
         [DisplayName("Costo Combustible")]
+
         public decimal CostFuel
         {
             get { return costFuel; }
@@ -32,9 +33,9 @@ namespace Clases
                 else costFuel = 0;
             }
         }
-        
-        private static List<Car> ListCars;
+        public bool Disponible = true;
 
+        private static List<Car> ListCars = new List<Car>();
 
         public Car(string patent_p, string bland_p = "", string model_p = "", string color_p = "", decimal costFuel_p = 0)
         {
@@ -44,7 +45,7 @@ namespace Clases
             Patent = patent_p;
             costFuel = costFuel_p;
 
-            ListCars = new List<Car>();
+            Disponible = true;
         }
 
         public Car()
@@ -55,7 +56,7 @@ namespace Clases
             Patent = "AAA000";
             costFuel = 0;
 
-            ListCars = new List<Car>();
+            Disponible = true;
         }
 
         public override string ToString()
@@ -70,6 +71,28 @@ namespace Clases
         public static List<Car> GetListCar()
         {
             return ListCars;
+        }
+        public static List<Car> GetFreeCars()
+        {
+            List<Car> freeCars = new List<Car>();
+
+            foreach (Car c in ListCars)
+            {
+                if (c.Disponible)
+                {
+                    freeCars.Add(c);
+                }
+            }
+
+            return freeCars;
+        }
+        public void OcuparAuto()
+        {
+            this.Disponible = false;
+        }
+        public void DesocuparAuto()
+        {
+            this.Disponible = true;
         }
     }
 }

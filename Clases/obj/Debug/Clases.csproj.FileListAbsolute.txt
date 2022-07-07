@@ -14,3 +14,9 @@ E:\_PDISC\TPS\TP_02\Proyecto\RemiseriaSolucion\Clases\bin\Debug\Clases.pdb
 E:\_PDISC\TPS\TP_02\Proyecto\RemiseriaSolucion\Clases\obj\Debug\Clases.csprojResolveAssemblyReference.cache
 E:\_PDISC\TPS\TP_02\Proyecto\RemiseriaSolucion\Clases\obj\Debug\Clases.dll
 E:\_PDISC\TPS\TP_02\Proyecto\RemiseriaSolucion\Clases\obj\Debug\Clases.pdb
+C:\Users\maxi_\Documents\_Jere\_PDISC\TPS\RemiseriaSolucion\Clases\bin\Debug\Clases.dll
+C:\Users\maxi_\Documents\_Jere\_PDISC\TPS\RemiseriaSolucion\Clases\bin\Debug\Clases.pdb
+C:\Users\maxi_\Documents\_Jere\_PDISC\TPS\RemiseriaSolucion\Clases\obj\Debug\Clases.csproj.AssemblyReference.cache
+C:\Users\maxi_\Documents\_Jere\_PDISC\TPS\RemiseriaSolucion\Clases\obj\Debug\Clases.csproj.CoreCompileInputs.cache
+C:\Users\maxi_\Documents\_Jere\_PDISC\TPS\RemiseriaSolucion\Clases\obj\Debug\Clases.dll
+C:\Users\maxi_\Documents\_Jere\_PDISC\TPS\RemiseriaSolucion\Clases\obj\Debug\Clases.pdb

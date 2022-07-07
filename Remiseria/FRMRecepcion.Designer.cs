@@ -68,6 +68,7 @@ namespace Remiseria
             this.CMBDrivers = new System.Windows.Forms.ComboBox();
             this.BTNSave = new System.Windows.Forms.Button();
             this.LBLDriver = new System.Windows.Forms.Label();
+            this.DGVClientes = new System.Windows.Forms.DataGridView();
             this.GRPAuthenticate.SuspendLayout();
             this.GRPCustomer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NUDTelephone)).BeginInit();
@@ -75,6 +76,7 @@ namespace Remiseria
             ((System.ComponentModel.ISupportInitialize)(this.DGVTravels)).BeginInit();
             this.GRPDriver.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NUDEarn)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DGVClientes)).BeginInit();
             this.SuspendLayout();
             // 
             // GRPAuthenticate
@@ -434,8 +436,8 @@ namespace Remiseria
             // 
             this.DGVTravels.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGVTravels.Location = new System.Drawing.Point(248, 78);
-            this.DGVTravels.MultiSelect = false;
             this.DGVTravels.Name = "DGVTravels";
+            this.DGVTravels.ReadOnly = true;
             this.DGVTravels.Size = new System.Drawing.Size(469, 276);
             this.DGVTravels.TabIndex = 3;
             // 
@@ -522,11 +524,21 @@ namespace Remiseria
             this.LBLDriver.TabIndex = 0;
             this.LBLDriver.Text = "Chofer";
             // 
+            // DGVClientes
+            // 
+            this.DGVClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DGVClientes.Location = new System.Drawing.Point(723, 78);
+            this.DGVClientes.Name = "DGVClientes";
+            this.DGVClientes.ReadOnly = true;
+            this.DGVClientes.Size = new System.Drawing.Size(469, 276);
+            this.DGVClientes.TabIndex = 17;
+            // 
             // FRMRecepcion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(738, 570);
+            this.ClientSize = new System.Drawing.Size(1195, 570);
+            this.Controls.Add(this.DGVClientes);
             this.Controls.Add(this.GRPDriver);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -552,6 +564,7 @@ namespace Remiseria
             this.GRPDriver.ResumeLayout(false);
             this.GRPDriver.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NUDEarn)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DGVClientes)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -599,6 +612,7 @@ namespace Remiseria
         private System.Windows.Forms.ComboBox CMBDrivers;
         private System.Windows.Forms.Button BTNSave;
         private System.Windows.Forms.Label LBLDriver;
+        private System.Windows.Forms.DataGridView DGVClientes;
     }
 }
 

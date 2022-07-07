@@ -30,7 +30,7 @@ namespace Clases
         [DisplayName("Ingreso Real")]
         public DateTime IncomeLocal { get; set; }
         [DisplayName("Tardia")]
-        public DateTime IncomeLocalDelay { get; set; }
+        public TimeSpan IncomeLocalDelay { get; set; }
         [DisplayName("Ausencias")]
         public List<DateTime> Absences { get; set; }
         
@@ -38,8 +38,7 @@ namespace Clases
         {
             Salary = 0;
             IncomeLocal = new DateTime();
-            IncomeLocalDelay = new DateTime();
-            IncomeLocalDelay = new DateTime();
+            IncomeLocalDelay = new TimeSpan();
 
             Name = "n/n";
             Surname = "n/n";
@@ -47,11 +46,10 @@ namespace Clases
             Telephono = 1000000000;
         }
 
-        public Employees(string name_p, string surname_p, DateTime birthDay_p, int telephono_p, decimal salary_p, DateTime incomeScheduled_p, DateTime incomeLocal_p, DateTime incomeLocalDelay_p, DateTime absences_p)
+        public Employees(string name_p, string surname_p, DateTime birthDay_p, int telephono_p, decimal salary_p, DateTime incomeLocal_p, TimeSpan incomeLocalDelay_p, DateTime absences_p)
         {
             Salary = salary_p;
             IncomeLocal = incomeLocal_p;
-            IncomeLocalDelay = incomeLocalDelay_p;
             IncomeLocalDelay = incomeLocalDelay_p;
             Absences.Add(absences_p);
 
@@ -63,15 +61,13 @@ namespace Clases
 
         public void Arrived()
         {
-            if (IncomeLocalDelay.Minute < 5) IncomeLocalDelay = new DateTime();
             IncomeLocal = DateTime.Now;
             CalculateDelay();
         }
 
         public void CalculateDelay()
         {
-            // IncomeLocalDelay = Convert.ToDateTime(IncomeScheduled - IncomeLocal);
-            IncomeLocalDelay = new DateTime();
+            IncomeLocalDelay = RemiseriaClass.Entrada - DateTime.Now;
         }
 
         public virtual decimal ReceivesRemuneration()

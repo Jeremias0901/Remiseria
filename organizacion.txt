@@ -1,3 +1,7 @@
 1. Crear todas las pantallas con todos los controles.
 2. Definir Funcionamiento junto a clases en base clases.
 
+-----------------------
+
+1. Definir todo. Ejecutarlo.
+

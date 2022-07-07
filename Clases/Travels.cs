@@ -24,14 +24,18 @@ namespace Clases
         public DateTime Delay { get; set; }
         [DisplayName("Estado")]
         public bool State { get; set; }
+        public Car Car_o { get; set; }
 
-        public Travels(string placeDeparture_p, string placeDestiny_p, DateTime duration_p, bool state_p)
+        public static List<Travels> ListTravels = new List<Travels>();
+
+        public Travels(string placeDeparture_p, string placeDestiny_p, DateTime duration_p, bool state_p, Car car_p)
         {
             PlaceDeparture = placeDeparture_p;
             PlaceDestiny = placeDestiny_p;
             Duration = duration_p;
             State = state_p;
-            
+            Car_o = car_p;
+
             TimeDeparture = DateTime.Now;
         }
         public Travels()
@@ -40,13 +44,24 @@ namespace Clases
             PlaceDestiny = "n/n";
             Duration = new DateTime();
             State = false;
+            Car_o = new Car();
 
             TimeDeparture = DateTime.Now;
         }
 
+        public void Save()
+        {
+            ListTravels.Add(this);
+        }
+        
         public void SetTimeDestiny()
         {
             TimeDestiny = DateTime.Now;
+        }
+
+        public void AddCar(Car car_p)
+        {
+            Car_o = car_p;
         }
     }
 }

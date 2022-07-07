@@ -28,11 +28,9 @@ namespace Remiseria
 
         private void BTNFinish_Click(object sender, EventArgs e)
         {
-            Boss boss = new Boss();
-
             foreach (Driver driver in GetAusentes())
             {
-                boss.AddAbsences(driver);
+                driver.Absent();
             }
             
             FRMCars frmCars = new FRMCars();
@@ -46,22 +44,22 @@ namespace Remiseria
             
         }
 
-        public void LoadListDrivers()
+        public void LoadListDrivers(DataGridView DGV, List<Driver> lista)
         {
-            DGVDrivers.DataSource = null;
-            DGVDrivers.DataSource = Driver.GetListDriver();
+            DGV.DataSource = null;
+            DGV.DataSource = lista;
         }
 
         private void BTNAdd_Click(object sender, EventArgs e)
         {
-            if(camposValidos())
+            if(CamposValidos())
             {
                 car = new Car();
-                driver = new Driver(TXTName.Text, TXTSurname.Text, car, Convert.ToInt32(NUDTelephone.Value), 0, 0, DTPSchedule.Value, new DateTime(), new DateTime(), new DateTime(), DTPBirthDay.Value);
+                driver = new Driver(TXTName.Text, TXTSurname.Text, car, Convert.ToInt32(NUDTelephone.Value), 0, 0, new DateTime(), new TimeSpan(), DTPBirthDay.Value);
 
                 driver.SaveDrivers();
 
-                LoadListDrivers();
+                LoadListDrivers(DGVDrivers, Driver.GetListDriver());
 
                 VaciarCampos();
             }
@@ -71,7 +69,7 @@ namespace Remiseria
             }
         }
 
-        public bool camposValidos()
+        public bool CamposValidos()
         {
             return (TXTName.Text != "" && TXTSurname.Text != "");
         }
@@ -92,28 +90,55 @@ namespace Remiseria
             }
             else
             {
+                List<Driver> listaDriverPresents = DGVDrivers.DataSource as List<Driver>;
+
                 foreach (DataGridViewRow fila in DGVDrivers.SelectedRows)
                 {
-                    driver = (Driver)fila.DataBoundItem;
+                    driver = fila.DataBoundItem as Driver;
 
                     driver.Arrived();
 
-                    DGVDrivers.ClearSelection();
+                    listaDriverPresents.Remove(driver);
                 }
+
+                LoadListDrivers(DGVDrivers, listaDriverPresents);
             }
         }
+        private void BTNArrived_Click(object sender, EventArgs e)
+        {
+            if (DGVDriversLate.SelectedRows.Count < 1)
+            {
+                MessageBox.Show("Debe seleccionar al menos 1 chofer.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                List<Driver> listaDriverLast = DGVDriversLate.DataSource as List<Driver>; 
+                
+                foreach (DataGridViewRow fila in DGVDriversLate.SelectedRows)
+                {
+                    driver = fila.DataBoundItem as Driver;
 
+                    driver.Arrived();
+
+                    listaDriverLast.Remove(driver);
+                }
+
+                LoadListDrivers(DGVDriversLate, listaDriverLast);
+            }
+        }
         private void BTNContinue_Click(object sender, EventArgs e)
         {
             if (Driver.GetListDriver() != null)
             {
-                if(!GetAusentes().Equals(new List<Driver>()))
-                {
-                    DGVDriversLate.DataSource = GetAusentes();
+                GRPAddDriver.Enabled = false;
+                BTNPresentDrivers.Enabled = false;
+                BTNContinue.Enabled = false;
 
-                    DGVDriversLate.Enabled = true;
-                    BTNArrived.Enabled = true;
-                }
+                DGVDriversLate.DataSource = GetAusentes();
+
+                DGVDriversLate.Enabled = true;
+                BTNArrived.Enabled = true;
+                BTNFinish.Enabled = true;
             }
             else
             {
@@ -134,25 +159,6 @@ namespace Remiseria
             }
 
             return lista_result;
-        }
-
-        private void BTNArrived_Click(object sender, EventArgs e)
-        {
-            if (DGVDriversLate.SelectedRows.Count < 1)
-            {
-                MessageBox.Show("Debe seleccionar al menos 1 chofer.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else
-            {
-                foreach (DataGridViewRow fila in DGVDriversLate.SelectedRows)
-                {
-                    driver = (Driver)fila.DataBoundItem;
-
-                    driver.Arrived();
-                    
-                    DGVDrivers.ClearSelection();
-                }
-            }
         }
     }
 }
