@@ -207,7 +207,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.label1.Location = new System.Drawing.Point(31, 105);
+            this.label1.Location = new System.Drawing.Point(38, 105);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(49, 13);
             this.label1.TabIndex = 14;
@@ -237,7 +237,7 @@
             // 
             this.LBLBirthDay.AutoSize = true;
             this.LBLBirthDay.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.LBLBirthDay.Location = new System.Drawing.Point(9, 76);
+            this.LBLBirthDay.Location = new System.Drawing.Point(22, 76);
             this.LBLBirthDay.Name = "LBLBirthDay";
             this.LBLBirthDay.Size = new System.Drawing.Size(65, 13);
             this.LBLBirthDay.TabIndex = 13;

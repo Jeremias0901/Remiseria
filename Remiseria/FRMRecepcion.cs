@@ -31,22 +31,19 @@ namespace Remiseria
 
                 if (o_customer.Equals(new Customers()))
                 {
-                    LBLEstado.Text = "Cliente Encontrado!";
-
                     CustomerCompletBlanks(o_customer);
 
-                    GRPAuthenticate.Enabled = false;
-                    GRPCustomer.Enabled = false;
-                    GRPTravel.Enabled = true;
-
-                    MTXCode.Text = "";
+                    LBLEstado.ChangeText("Cliente Encontrado!");
+                    MTXCode.ChangeText("");
+                    GRPAuthenticate.ActivarDesactivar(false);
+                    GRPCustomer.ActivarDesactivar(false);
+                    GRPTravel.ActivarDesactivar(true);
                 }
                 else
                 {
-                    LBLEstado.Text = "Cliente NO encontrado";
-                    BTNGenerate.Enabled = true;
-                
-                    MTXCode.Text = "";
+                    LBLEstado.ChangeText("Cliente NO encontrado");
+                    MTXCode.ChangeText("");
+                    BTNGenerate.ActivarDesactivar(true);
                 }
             }
             else
@@ -56,31 +53,35 @@ namespace Remiseria
         }
         private void BTNGenerate_Click(object sender, EventArgs e)
         {
-            Random rnd = new Random();
+            //Random rnd = new Random();
 
-            LBLEstado.Text = "Codigo generado!";
-            LBLCode_Content.Text = Customers.GenerateCode(rnd).ToString();
+            //LBLEstado.Text = "Codigo generado!";
+            //LBLCode_Content.Text = Customers.GenerateCode(rnd).ToString();
 
-            GRPAuthenticate.Enabled = false;
-            GRPCustomer.Enabled = true;
-            MTXCode.Text = "";
+            GRPAuthenticate.ActivarDesactivar(false);
+            GRPCustomer.ActivarDesactivar(true);
+            MTXCode.ChangeText("");
         }
+
         private void BTNRegister_Click(object sender, EventArgs e)
         {
             if (ValidBlanks_Customer())
             {
-                o_customer = new Customers(code_p: Convert.ToInt32(LBLCode_Content.Text), name_p: TXTName.Text, surname_p: TXTSurname.Text, birthDay_p: DTPBirthDay.Value, telephone_p: Convert.ToInt32(NUDTelephone.Value));
+                o_customer = new Customers(name_p: TXTName.Text, surname_p: TXTSurname.Text, birthDay_p: DTPBirthDay.Value, telephone_p: Convert.ToInt32(NUDTelephone.Value));
                 o_customer.SaveCustomer();
+                MostrarCodigo(o_customer);
 
-                GRPCustomer.Enabled = false;
-                GRPTravel.Enabled = true;
-
-                VaciarCampos();
+                GRPCustomer.ActivarDesactivar(false);
+                GRPTravel.ActivarDesactivar(false);
             }
             else
             {
                 MessageBox.Show("Complete correctamente todos los campos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+        public void MostrarCodigo(Customers customer)
+        {
+            MessageBox.Show(string.Format("El codigo de es {0}", customer.GetCodigo().ToString()), "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
         private void BTNOrderTravel_Click(object sender, EventArgs e)
         {
@@ -88,44 +89,37 @@ namespace Remiseria
             {
                 Car car_p;
 
-                List<Car> listaFreeCars = new List<Car>();
-
-                foreach (Car c in Car.GetListCar())
-                {
-                    if (c.Disponible)
-                    {
-                        listaFreeCars.Add(c);
-                    }
-                }
-
-                if (listaFreeCars.Count <= 1)
+                if (Car.GetFreeCars().Count <= 1)
                 {
                     MessageBox.Show("No hay autos libres", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 else
                 {
-                    car_p = listaFreeCars.Last();
+                    car_p = Car.GetFreeCars().Last();
+                    
+                    TimeSpan timespan;
+                    TimeSpan.TryParse(DTPDuration.Value.ToString(), out timespan);
 
-                    Travels travel = new Travels(TXTDeparture.Text, TXTDestiny.Text, DTPDuration.Value, true, car_p);
+                    Travels travel = new Travels(TXTDeparture.Text, TXTDestiny.Text, timespan, true, car_p);
                     travel.Save();
 
                     car_p.OcuparAuto();
 
                     LoadGDVTravels(Travels.ListTravels);
 
-                    GRPAuthenticate.Enabled = true;
-                    GRPTravel.Enabled = false;
-                    BTNFind.Enabled = true;
-                    MTXCode.Enabled = true;
-                    BTNRegister.Enabled = true;
+                    GRPAuthenticate.ActivarDesactivar(true);
+                    GRPTravel.ActivarDesactivar(false);
+                    BTNFind.ActivarDesactivar(true);
+                    MTXCode.ActivarDesactivar(true);
+                    BTNRegister.ActivarDesactivar(true);
 
-                    TXTDeparture.Text = "";
-                    TXTDestiny.Text = "";
+                    TXTDeparture.ChangeText("");
+                    TXTDestiny.ChangeText("");
                     DTPDuration.Value = new DateTime(2001, 1, 1);
 
                     VaciarCampos();
 
-                    GRPDriver.Enabled = true;
+                    GRPDriver.ActivarDesactivar(true);
                 }
             }
         }
@@ -138,19 +132,19 @@ namespace Remiseria
 
         private void BTNCancelTravel_Click(object sender, EventArgs e)
         {
-            if (DGVTravels.SelectedRows.Count >= 1)
+            if (DGVTravels.SelecionaronFilas())
             {
                 foreach (DataGridViewRow fila in DGVTravels.SelectedRows)
                 {
                     Travels t = fila.DataBoundItem as Travels;
-                    t.Car_o.OcuparAuto();
+                    t.GetCar().OcuparAuto();
                 }
 
                 LoadGDVTravels(Travels.ListTravels);
 
-                GRPAuthenticate.Enabled = true;
-                GRPCustomer.Enabled = false;
-                GRPTravel.Enabled = false;
+                GRPAuthenticate.ActivarDesactivar(true);
+                GRPCustomer.ActivarDesactivar(false);
+                GRPTravel.ActivarDesactivar(false);
             }
             else
             {
@@ -163,7 +157,7 @@ namespace Remiseria
             foreach (DataGridViewRow fila in DGVTravels.SelectedRows)
             {
                 Travels t = fila.DataBoundItem as Travels;
-                t.Car_o.DesocuparAuto();
+                t.GetCar().DesocuparAuto();
             }
 
             LoadGDVTravels(Travels.ListTravels);
@@ -176,7 +170,7 @@ namespace Remiseria
             foreach (DataGridViewRow fila in DGVTravels.SelectedRows)
             {
                 travel = fila.DataBoundItem as Travels;
-                MessageBox.Show(travel.Car_o.ToString(), "Auto", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(travel.GetCar().ToString(), "Auto", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
         public void VaciarCampos()
@@ -188,11 +182,11 @@ namespace Remiseria
         }
         public void CustomerCompletBlanks(Customers customer)
         {
-            GRPCustomer.Enabled = false;
-            TXTName.Text = customer.Name;
-            TXTSurname.Text = customer.Surname;
+            GRPCustomer.ActivarDesactivar(false);
+            TXTName.ChangeText(customer.GetName());
+            TXTSurname.ChangeText(customer.GetSurname());
+            LBLCode_Content.ChangeText(customer.GetCodigo().ToString());
             // DTPBirthDay.Value = customer.BirthDay;
-            LBLCode_Content.Text = customer.Code.ToString();
         }
         public bool ValidBlanks_Customer()
         {

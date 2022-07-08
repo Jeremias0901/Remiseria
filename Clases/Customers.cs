@@ -13,9 +13,10 @@ namespace Clases
         private int Code { set; get; }
         static private List<Customers> ListCustomers = new List<Customers>();
 
-        public Customers(int code_p, string name_p, string surname_p, DateTime birthDay_p, int telephone_p)
+        public Customers(string name_p, string surname_p, DateTime birthDay_p, int telephone_p)
         {
-            this.Code = code_p;
+            Random rnd = new Random();
+            this.GenerateCode(rnd);
 
             // Person
             Name = name_p;
@@ -63,6 +64,18 @@ namespace Clases
         static public List<Customers> GetListCustomer()
         {
             return ListCustomers;
+        }
+        public decimal GetCodigo()
+        {
+            return Code;
+        }
+        public string GetName()
+        {
+            return Name;
+        }
+        public string GetSurname()
+        {
+            return Surname;
         }
     }
 }

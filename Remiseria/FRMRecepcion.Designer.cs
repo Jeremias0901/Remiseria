@@ -116,7 +116,7 @@ namespace Remiseria
             this.BTNGenerate.Name = "BTNGenerate";
             this.BTNGenerate.Size = new System.Drawing.Size(75, 23);
             this.BTNGenerate.TabIndex = 2;
-            this.BTNGenerate.Text = "Generar";
+            this.BTNGenerate.Text = "Registrar";
             this.BTNGenerate.UseVisualStyleBackColor = true;
             this.BTNGenerate.Click += new System.EventHandler(this.BTNGenerate_Click);
             // 

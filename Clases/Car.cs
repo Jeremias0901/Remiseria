@@ -47,7 +47,6 @@ namespace Clases
             CostFuel = 0;
             Disponible = true;
         }
-
         public override string ToString()
         {
             return string.Format("{0} {1} {2}", Bland, Model, Color);
@@ -81,6 +80,21 @@ namespace Clases
             }
 
             return freeCars;
+        }
+        static public Car Find(string patent_p)
+        {
+            Car c_result = new Car();
+
+            foreach (Car car in ListCars)
+            {
+                if (car.Patent == patent_p)
+                {
+                    c_result = car;
+                    break;
+                }
+            }
+
+            return c_result;
         }
     }
 }

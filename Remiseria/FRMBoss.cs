@@ -52,14 +52,18 @@ namespace Remiseria
 
         private void BTNAdd_Click(object sender, EventArgs e)
         {
-            if(CamposValidos())
+            if(Tools.Validated(GRPAddDriver.Controls))
             {
                 car = new Car();
                 driver = new Driver(TXTName.Text, TXTSurname.Text, car, Convert.ToInt32(NUDTelephone.Value), 0, 0, DTPBirthDay.Value);
 
                 driver.SaveDrivers();
 
-                LoadListDrivers(DGVDrivers, Driver.GetListDriver());
+                DGVDrivers.DataSource = null;
+                DGVDrivers.BackgroundColor = Color.Red;
+                MessageBox.Show("Antes");
+                DGVDrivers.DataSource = Driver.GetListDriver();
+                MessageBox.Show("Despues");
 
                 VaciarCampos();
             }
@@ -84,11 +88,7 @@ namespace Remiseria
 
         private void BTNPresentDrivers_Click(object sender, EventArgs e)
         {
-            if (DGVDrivers.SelectedRows.Count < 1)
-            {
-                MessageBox.Show("Debe seleccionar al menos 1 chofer.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else
+            if (DGVDrivers.SelecionaronFilas())
             {
                 List<Driver> listaDriverPresents = Driver.GetListDriver();
 
@@ -101,7 +101,11 @@ namespace Remiseria
                     listaDriverPresents.Remove(driver);
                 }
 
-                LoadListDrivers(DGVDrivers, listaDriverPresents);
+                LoadListDrivers(DGVDrivers, listaDriverPresents); 
+            }
+            else
+            {
+                MessageBox.Show("Debe seleccionar al menos 1 chofer.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         private void BTNArrived_Click(object sender, EventArgs e)
@@ -130,15 +134,15 @@ namespace Remiseria
         {
             if ( Driver.GetListDriver().Count >= 1 )
             {
-                GRPAddDriver.Enabled = false;
-                BTNPresentDrivers.Enabled = false;
-                BTNContinue.Enabled = false;
+                GRPAddDriver.ActivarDesactivar(false);
+                BTNPresentDrivers.ActivarDesactivar(false);
+                BTNContinue.ActivarDesactivar(false);
 
                 DGVDriversLate.DataSource = Driver.GetAusentesDrivers();
 
-                DGVDriversLate.Enabled = true;
-                BTNArrived.Enabled = true;
-                BTNFinish.Enabled = true;
+                DGVDriversLate.ActivarDesactivar(true);
+                BTNArrived.ActivarDesactivar(true);
+                BTNFinish.ActivarDesactivar(true);
             }
             else
             {

@@ -66,22 +66,15 @@ namespace Remiseria
         */
         public void SubirDriverCMB()
         {
-            // Cargar solo los choferes que llegaron
-            // CMBDriver.DataSource = Driver.GetListDriver();
+            // Carga los choferes presentes
 
-            if (Driver.GetListDriver().Count >= 1)
+            if (Driver.GetAusentesDrivers().Count >= 1)
             {
-                foreach (Driver d in Driver.GetListDriver())
-                {
-                    if ( d.IncomeLocal.Count >= 1 )
-                    {
-                        CMBDriver.Items.Add(d);
-                    }
-                }
+                CMBDriver.DataSource = Driver.GetAusentesDrivers();
             }
             else
             {
-                MessageBox.Show("Lista de conductores vacia.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Lista de conductores presentes vacia.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         public void SubirCarCMB(List<Car> listaCar)

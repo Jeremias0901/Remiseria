@@ -85,5 +85,9 @@ namespace Clases
 
             return ViajeMenor.Delay;
         }
+        public Car GetCar()
+        {
+            return Car_o;
+        }
     }
 }
